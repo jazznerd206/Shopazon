@@ -1,5 +1,3 @@
-var db = require("../models");
-
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
@@ -9,6 +7,7 @@ module.exports = function(app) {
     //     examples: dbExamples
     //   });
     // });
+    res.render("404");
   });
 
   // Load example page and pass in an example by id
@@ -18,6 +17,7 @@ module.exports = function(app) {
     //     example: dbExample
     //   });
     // });
+    res.render("404");
   });
 
   // Render 404 page for any unmatched routes
