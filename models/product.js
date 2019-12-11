@@ -18,5 +18,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+  Product.associate = function(models) {
+    // We're saying that a Product should belong to an Author
+    // A Product can't be created without an Author due to the foreign key constraint
+    Product.belongsTo(models.Department, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Product;
 };
