@@ -1,3 +1,3 @@
 DROP DATABASE IF EXISTS shopazon_db;
-CREATE DATABASE shopazon_db;
+CREATE DATABASE IF NOT EXISTS shopazon_db;
 
