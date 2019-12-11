@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="../../public/js/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+    <title>Shopazon</title>
+</head>
+
+<style>
+.single-box {
+    position: relative;   
+}
+.single-box .box-img img {
+    z-index: 1;
+}
+.box-img img {
+    width: 100%;
+    transition: .3s;
+    object-fit: contain;
+    max-width: 100%;
+}
+.single-box:hover .box-img img {
+    transform: scale(1.1);
+}
+.button-group {
+    display: none;
+}
+.buttons .button-group {
+    width: 100%;
+    transition: .3s;
+    object-fit: contain;
+    max-width: 100%;
+}
+.single-box:hover .buttons .button-group{
+    display: block;
+    position: absolute;
+    bottom: 30%;
+    left: 35%;
+    z-index: 5;
+}
+</style>
+
+
+<body>
+    <div class="box-area">
+        <div class="container">
+            <div class="grid-x grid-padding-x">
+                <div class="cell large-3 medium-3 small-12">
+                    <div class="single-box">
+                        <div class="box-img">
+                            <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                        </div>
+                        <div class="buttons">
+                            <div class="button-group expanded">
+                                    <a href="#" class="button">Cart</a>
+                                    <a href="#" class="button">Info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<script>
+
+</script>
+
+
+</body>
+
+</html>
