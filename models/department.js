@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Department = sequelize.define("Department", {
     // Giving the department model a name of type STRING
     id: {
@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Department.associate = function (models) {
+  Department.associate = function(models) {
     // Associating department with Posts
     // When an department is deleted, also delete any associated Posts
     Department.hasMany(models.Product, {
