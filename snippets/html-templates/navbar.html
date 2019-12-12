@@ -15,6 +15,17 @@
 </head>
 
 <style>
+/* GLOBAL STYLES */
+.button {
+    border: 2px solid black;
+    border-radius: 10%;
+}
+.button:hover {
+    color: #fff;
+    border: 2px solid white;
+    border-radius: 20%;
+    background: black
+}
 
 /* TOP BAR STYLES */
 .top-bar {
@@ -29,7 +40,6 @@
 .single-box {
     position: relative;
     padding-bottom: 70px;
-    position: relative;
     z-index: 1;
     overflow: hidden;
     box-shadow: 5px 5px 15px #000;
@@ -105,7 +115,6 @@
 /* END FULL SIZE PRODUCT CARD STYLING, BEGIN EXTRA FOR SMALL CARDS */
 .single-box-small {
     position: relative;
-    position: relative;
     z-index: 1;
     overflow: hidden;
     box-shadow: 5px 5px 15px #000;
@@ -139,7 +148,7 @@
 
 <!-- ================================================================================================================= -->
 <!-- HTML FOR TOP BAR -->
-<div class="top-bar" data-topbar>
+<div class="top-bar">
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text">SHOPAZON</li>
@@ -171,11 +180,13 @@
   <div class="cell shrink header medium-cell-block-container">
     <div class="grid-x grid-padding-x">
       <div class="cell medium-4" style="background:yellow;">
+        <h4>SEARCH</h4>
         <input type="text">
         <button class="button">Search</button>
       </div>
       <div class="cell medium-4 medium-cell-block" style="background:salmon;">
           <div class="box-area">
+              <h4>SEASONAL/PROMOTIONAL</h4>
               <div class="container">
                   <div class="grid-x grid-padding-x">
                       <div class="cell large-3 medium-3 small-3">
@@ -236,6 +247,7 @@
           </div>
       </div>
       <div class="cell medium-4" style="background:burlywood;">
+        <h4>LOGIN</h4>
         <p>User Name: <input type="text" name="username"></p>
         <p>Password: <input type="text" name="username"></p>
       </div>
@@ -249,10 +261,10 @@
   <div class="cell medium-auto medium-cell-block-container">
       <div class="grid-x grid-padding-x">
         <div class="cell medium-2 small-12 medium-cell-block-y" style="background:grey;">
-            <ul class="dropdown menu-vertical" data-dropdown-menu>
+            <ul class="dropdown menu vertical" data-dropdown-menu>
                 <li>
                   <a href="#">Item 1</a>
-                  <ul class="menu">
+                  <ul class="dropdown menu">
                     <li><a href="#">Item 1A</a></li>
                     <!-- ... -->
                   </ul>
@@ -271,8 +283,8 @@
           <h3>PRODUCTS</h3>
           <div class="box-area">
             <div class="container">
-                <div class="grid-x grid-padding-x">
-                    <div class="cell large-3 medium-3 small-12">
+                <div class="grid-x grid-padding-x grid-padding-y">
+                    <div class="cell large-6 medium-3 small-12">
                         <div class="single-box">
                             <div class="box-img">
                                 <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
@@ -289,7 +301,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell large-3 medium-3 small-12">
+                    <div class="cell large-6 medium-3 small-12">
                             <div class="single-box">
                                 <div class="box-img">
                                     <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
@@ -306,7 +318,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cell large-3 medium-3 small-12">
+                        <div class="cell large-6 medium-3 small-12">
                                 <div class="single-box">
                                     <div class="box-img">
                                         <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
@@ -320,7 +332,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="cell large-3 medium-3 small-12">
+                            <div class="cell large-6 medium-3 small-12">
                                     <div class="single-box">
                                         <div class="box-img">
                                             <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
