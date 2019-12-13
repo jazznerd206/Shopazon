@@ -18,14 +18,14 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     }
   });
-  Product.associate = function(models) {
-    // We're saying that a Product should belong to an Author
-    // A Product can't be created without an Author due to the foreign key constraint
-    Product.belongsTo(models.Department.Product, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  //     //   OrderProduct.associate = function(models) {
+  //     //     // We're saying that a OrderProduct should belong to an product
+  //     //     // A Product can't be created without an product due to the foreign key constraint
+  //     //     OrderProduct.belongsTo(models.Product, {
+  //     //       foreignKey: {
+  //     //         allowNull: false
+  //     //       }
+  //     //     });
+  //     //   };
   return OrderProduct;
 };
