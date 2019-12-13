@@ -152,6 +152,7 @@ body {
   z-index: 100;
 }
 
-#product-container{
+/* Product Page Styling */
+.product-container{
   margin: 10px auto;
 }
