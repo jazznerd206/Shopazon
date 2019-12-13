@@ -15,6 +15,20 @@
 </head>
 
 <style>
+/* GLOBAL STYLES */
+body {
+    background-image: radial-gradient(#bdc3c7, #2c3e50);
+}
+.button {
+    border: 2px solid black;
+    border-radius: 10%;
+}
+.button:hover {
+    color: #fff;
+    border: 2px solid white;
+    border-radius: 20%;
+    background: black
+}
 
 /* TOP BAR STYLES */
 .top-bar {
@@ -29,7 +43,6 @@
 .single-box {
     position: relative;
     padding-bottom: 70px;
-    position: relative;
     z-index: 1;
     overflow: hidden;
     box-shadow: 5px 5px 15px #000;
@@ -38,12 +51,14 @@
     position: relative;
     z-index: 5;
     overflow: hidden;
+    border-radius: 25px;
 }
 .box-img img {
     width: 100%;
     transition: .3s;
     object-fit: contain;
     max-width: 100%;
+    border-radius: 25px;
 }
 .single-box:hover .box-img img {
     transform: scale(1.1);
@@ -58,6 +73,7 @@
     transition: .4s;
     background: #fff;
     z-index: 5;
+    border-radius: 25px;
 }
 .single-box:hover .box-content {
     height: 150px;
@@ -105,10 +121,10 @@
 /* END FULL SIZE PRODUCT CARD STYLING, BEGIN EXTRA FOR SMALL CARDS */
 .single-box-small {
     position: relative;
-    position: relative;
     z-index: 1;
     overflow: hidden;
     box-shadow: 5px 5px 15px #000;
+    border-radius: 25%;
 }
 .single-box-small:hover .box-img img {
     transform: scale(1.1);
@@ -133,16 +149,38 @@
     align-content: center;
 }
 /* END SMALL PRODUCT CARD STYLES */
+
+/* FRONT PAGE STYLES */
+.cell-design {
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 15px #000;
+    border-radius: 25px;
+}
+.cell-clear {
+    background-color: silver;
+}
+.cell-contain {
+    object-fit: contain;
+}
+.cell-logo {
+    padding: 10px 10px 10px 10px;
+}
+.top-bar .top-bar-left ul {
+    z-index: 100;
+}
 </style>
 
 <body>
 
 <!-- ================================================================================================================= -->
 <!-- HTML FOR TOP BAR -->
-<div class="top-bar" data-topbar>
+<div class="top-bar cell-design">
+    <img src="../../images/shopazon-logo.png" class="cell-logo" alt="logo" style="max-height: 100px;">
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">SHOPAZON</li>
+            <input type="text">
+            <input type="submit" value="submit">
             <li>
               <a href="#">Shop</a>
               <ul class="menu vertical">
@@ -151,12 +189,14 @@
                 <li><a href="#">Surprise Me!</a></li>
               </ul>
             </li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="#">Account</a></li>
           </ul>
     </div>
     <div class="top-bar-right">
-        <img src="../../images/shopazon-logo.png" alt="logo" style="max-height: 100px;">
+        <ul class="menu">
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Reigster</a></li>
+            <li><button type="button" class="button">Cart</button></li>
+    </ul>
     </div>
 </div>
 <!-- END TOP BAR -->
@@ -166,67 +206,48 @@
 <!-- CONTAINER FOR PAGE CONTENT -->
 
 <!-- ================================================================================================================= -->
-<!-- SEARCH/SEASONAL/LOGIN -->
+<!-- SEASONAL/LOGIN -->
 <div class="grid-y medium-grid-frame">
-  <div class="cell shrink header medium-cell-block-container">
-    <div class="grid-x grid-padding-x">
-      <div class="cell medium-4" style="background:yellow;">
-        <input type="text">
-        <button class="button">Search</button>
-      </div>
-      <div class="cell medium-4 medium-cell-block" style="background:salmon;">
-          <div class="box-area">
-              <div class="container">
-                  <div class="grid-x grid-padding-x">
+    <div class="cell shrink header medium-cell-block-container">
+        <div class="grid-x grid-padding-x align-center">
+            <div class="cell medium-6 small-12 medium-cell-block" style="max-height:250px;">
+                    <div class="box-area cell-design cell-clear">
+                        <h4>SEASONAL/PROMOTIONAL</h4>
+                        <div class="container">
+                            <div class="grid-x grid-padding-x">
+                                <div class="cell large-3 medium-3 small-3">
+                                        <div class="single-box-small">
+                                            <div class="box-img">
+                                                <a href="#">
+                                                      <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <div class="cell large-3 medium-3 small-3">
+                                    <div class="single-box-small">
+                                        <div class="box-img">
+                                            <a href="#">
+                                                  <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                      <div class="cell large-3 medium-3 small-3">
+                            <div class="single-box-small">
+                                <div class="box-img">
+                                    <a href="#">
+                                          <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                       <div class="cell large-3 medium-3 small-3">
                           <div class="single-box-small">
                               <div class="box-img">
-                                  <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
-                              </div>
-                              <div class="buttons">
-                                  <div class="button-group tiny expanded">
-                                          <a href="#" class="button">Cart</a>
-                                          <a href="#" class="button">Info</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="cell large-3 medium-3 small-3">
-                          <div class="single-box-small">
-                              <div class="box-img">
-                                  <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
-                              </div>
-                              <div class="buttons">
-                                  <div class="button-group tiny expanded">
-                                          <a href="#" class="button">Cart</a>
-                                          <a href="#" class="button">Info</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="cell large-3 medium-3 small-3">
-                          <div class="single-box-small">
-                              <div class="box-img">
-                                  <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
-                              </div>
-                              <div class="buttons">
-                                  <div class="button-group tiny expanded">
-                                          <a href="#" class="button">Cart</a>
-                                          <a href="#" class="button">Info</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="cell large-3 medium-3 small-3">
-                          <div class="single-box-small">
-                              <div class="box-img">
-                                  <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
-                              </div>
-                              <div class="buttons">
-                                  <div class="button-group tiny expanded">
-                                          <a href="#" class="button">Cart</a>
-                                          <a href="#" class="button">Info</a>
-                                  </div>
+                                  <a href="#">
+                                        <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                                  </a>
                               </div>
                           </div>
                       </div>
@@ -234,10 +255,6 @@
                   </div>
               </div>
           </div>
-      </div>
-      <div class="cell medium-4" style="background:burlywood;">
-        <p>User Name: <input type="text" name="username"></p>
-        <p>Password: <input type="text" name="username"></p>
       </div>
     </div>
   </div>
@@ -248,105 +265,133 @@
 <!-- LEFT SIDE NAVIGATION -->
   <div class="cell medium-auto medium-cell-block-container">
       <div class="grid-x grid-padding-x">
-        <div class="cell medium-2 small-12 medium-cell-block-y" style="background:grey;">
-            <ul class="dropdown menu-vertical" data-dropdown-menu>
+        <!-- <div class="cell medium-2 small-12 medium-cell-block-y" style="background:grey;">
+            <ul class="dropdown menu vertical" data-dropdown-menu>
                 <li>
                   <a href="#">Item 1</a>
-                  <ul class="menu">
+                  <ul class="dropdown menu">
                     <li><a href="#">Item 1A</a></li>
-                    <!-- ... -->
                   </ul>
                 </li>
                 <li><a href="#">Item 2</a></li>
                 <li><a href="#">Item 3</a></li>
                 <li><a href="#">Item 4</a></li>
               </ul>
-        </div>
+        </div> -->
         <!-- END LEFT SIDE NAVIGATION -->
 <!-- ================================================================================================================= -->
 
 <!-- ================================================================================================================= -->
         <!-- FEATURED PRODUCTS -->
-        <div class="cell medium-8 small-12 medium-cell-block-y" style="background:cyan;">
-          <h3>PRODUCTS</h3>
-          <div class="box-area">
-            <div class="container">
-                <div class="grid-x grid-padding-x">
-                    <div class="cell large-3 medium-3 small-12">
-                        <div class="single-box">
-                            <div class="box-img">
-                                <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
-                            </div>
-                            <div class="box-content">
-                                <div class="button-group secondary expanded">
-                                    <a class="button">Button</a>
+    <div class="cell medium-cell-block-y cell-contain">
+        <div class="container">
+            <div class="grid-x align-center">
+                <div class="cell large-8 medium-8 small-12 cell-design cell-clear">
+                    <!-- ORBIT WRAPPER -->
+                    <div class="orbit" role="region" aria-label="Products" data-orbit>
+
+                            <!-- ORIT CONTROLS -->
+                            <div class="orbit-controls">
+                                <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
+                                <button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
+                    
+                                <!-- ORBIT CONTAINER -->
+                                <ul class="orbit-container">
+                                    <li class="orbit-slide is-active">
+                                        <figure class="orbit-figure">
+                                            <div class="single-box">
+                                                    <div class="box-img">
+                                                        <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                                                    </div>
+                                                    <div class="box-content">
+                                                        <div class="button-group success">
+                                                            <div class="dropdown button expanded">Button</div>
+                                                        </div>
+                                                        <div class="upper-info">
+                                                            <h3>title</h3>
+                                                            <p>info</p>
+                                                        </div>
+                                                        <p class="lower-info">description</p>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                    </li>
+                                    <li class="orbit-slide">
+                                        <figure class="orbit-figure">
+                                                <div class="single-box">
+                                                        <div class="box-img">
+                                                            <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                                                        </div>
+                                                        <div class="box-content">
+                                                            <div class="button-group success">
+                                                                <div class="dropdown button expanded">Button</div>
+                                                            </div>
+                                                            <div class="upper-info">
+                                                                <h3>title</h3>
+                                                                <p>info</p>
+                                                            </div>
+                                                            <p class="lower-info">description</p>
+                                                        </div>
+                                                    </div>
+                                        </figure>
+                                    </li>
+                                    <li class="orbit-slide">
+                                            <figure class="orbit-figure">
+                                                    <div class="single-box">
+                                                            <div class="box-img">
+                                                                <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                                                            </div>
+                                                            <div class="box-content">
+                                                                <div class="button-group success">
+                                                                    <div class="dropdown button expanded">Button</div>
+                                                                </div>
+                                                                <div class="upper-info">
+                                                                    <h3>title</h3>
+                                                                    <p>info</p>
+                                                                </div>
+                                                                <p class="lower-info">description</p>
+                                                            </div>
+                                                        </div>
+                                            </figure>
+                                        </li>
+                                        <li class="orbit-slide">
+                                                <figure class="orbit-figure">
+                                                        <div class="single-box">
+                                                                <div class="box-img">
+                                                                    <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
+                                                                </div>
+                                                                <div class="box-content">
+                                                                    <div class="button-group success">
+                                                                        <div class="dropdown button expanded">Button</div>
+                                                                    </div>
+                                                                    <div class="upper-info">
+                                                                        <h3>title</h3>
+                                                                        <p>info</p>
+                                                                    </div>
+                                                                    <p class="lower-info">description</p>
+                                                                </div>
+                                                            </div>
+                                                </figure>
+                                            </li>
+                                </ul>
+                    
+                                    <!-- ORBIT BULLETS -->
+                                    <nav class="orbit-bullets">
+                                        <button class="is-active" data-slide="0">
+                                            <span class="show-for-sr">First slide details.</span>
+                                            <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+                                        </button>
+                                        <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+                                        <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+                                        <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+                                    </nav>
                                 </div>
-                                <div class="upper-info">
-                                    <h3>title</h3>
-                                    <p>info</p>
-                                </div>
-                                <p class="lower-info">description</p>
                             </div>
                         </div>
                     </div>
-                    <div class="cell large-3 medium-3 small-12">
-                            <div class="single-box">
-                                <div class="box-img">
-                                    <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
-                                </div>
-                                <div class="box-content">
-                                    <div class="button-group success">
-                                        <div class="dropdown button expanded">ButtonS</div>
-                                    </div>
-                                    <div class="upper-info">
-                                        <h3>title</h3>
-                                        <p>info</p>
-                                    </div>
-                                    <p class="lower-info">description</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cell large-3 medium-3 small-12">
-                                <div class="single-box">
-                                    <div class="box-img">
-                                        <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
-                                    </div>
-                                    <div class="box-content">
-                                        <div class="upper-info">
-                                            <h3>title</h3>
-                                            <p>info</p>
-                                        </div>
-                                        <p class="lower-info">description</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cell large-3 medium-3 small-12">
-                                    <div class="single-box">
-                                        <div class="box-img">
-                                            <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="product" class="img-responsive">
-                                        </div>
-                                        <div class="box-content">
-                                            <div class="upper-info">
-                                                <h3>title</h3>
-                                                <p>info</p>
-                                            </div>
-                                            <p class="lower-info">description</p>
-                                        </div>
-                                    </div>
-                                </div>
                 </div>
             </div>
-        </div>
-        </div>
         <!-- END FEATURED PRODUCTS -->
-<!-- ================================================================================================================= -->
-
-<!-- ================================================================================================================= -->
-        <!-- SHOPPING CART -->
-        <div class="cell medium-2 small-12 medium-cell-block-y" style="background:greenyellow;">
-          <p>this is where shopping lists/shopping cart will sit</p>
-        </div>
-        <!-- END SHOPPING CART -->
 <!-- ================================================================================================================= -->
 
   </div>
