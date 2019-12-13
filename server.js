@@ -25,6 +25,7 @@ app.set("view engine", "handlebars");
 require("./routes/department-api-routes")(app);
 require("./routes/product-api-routes")(app);
 require("./routes/order-api-routes")(app);
+require("./routes/orderProduct-api-routes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
