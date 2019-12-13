@@ -1,17 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Example</h5>
-          <p>
-            <strong>ID</strong>: {{example.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
-            <a href="/">← Back To Home</a>
+<div class="grid-container cell-design cell-clear product-container">
+  <div class="grid-x grid-margin-y">
+    <div class="cell">{{department_name}} > {{name}}</div>
+    <div class="cell small-6">
+      <img id="large-product-image" src={{image}} width="350px" height="auto" class="img-responsive">
+    </div>
+    <div class="cell small-6">
+      <h2>{{name}}</h2>
+      <h4>{{description}}</h4>
+      <h4>{{price}}</h4>
+      <div class="grid-x">
+        <div class="cell small-3">
+          <label>Quantity?
+            <input class="user-quantity" type="number" value="1">
+            <button type="submit" class="button add-to-cart">Add To Cart</button>
+          </label>
         </div>
       </div>
     </div>

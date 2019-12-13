@@ -1,0 +1,20 @@
+<div class="grid-container cell-design cell-clear product-container">
+    <div class="grid-x grid-margin-y">
+        <div class="cell" id="product-path"></div>
+        <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
+            {{#each products}}
+            <div class="cell">
+                <div class="card cell-design">
+                    <img src="https://www.att.com/catalog/en/idse/Apple/Apple%20Watch%20Series%205%20-%2044mm/Space%20Gray%20Aluminum%20-%20Black%20Sport-hero-zoom.png">
+                    <div class="card-section">
+                        <a href="localhost:8080/all/{{name}}">
+                            <h4>{{name}}</h4>
+                        </a>
+                        <p>{{price}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
