@@ -151,3 +151,7 @@ body {
 .top-bar .top-bar-left ul {
   z-index: 100;
 }
+
+#product-container{
+  margin: 10px auto;
+}
