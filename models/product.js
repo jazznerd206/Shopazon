@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     name: {
       type: DataTypes.TEXT,
       allowNull: false,
-      len: [1]
+      len: [100]
     },
     description: {
       type: DataTypes.TEXT

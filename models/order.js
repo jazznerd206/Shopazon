@@ -8,8 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     customerId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      len: [1]
+      allowNull: false
     }
   });
   return Order;
