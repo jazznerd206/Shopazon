@@ -1,14 +1,54 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <!-- FOUNDATION JS -->
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.0/dist/js/foundation.min.js"></script>
+  <!-- FOUNDATION CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css"
+    integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg=="
+    crossorigin="anonymous">
+  <!-- Local CSS and JS Files -->
+  <link rel="stylesheet" href="../../public/styles/styles.css">
+  <script src="../../public/js/index.js"></script>
+  <title>Shopazon</title>
 </head>
 
 <body>
+  <!-- ================================================================================================================= -->
+  <!-- HTML FOR TOP BAR -->
+  <div class="top-bar cell-design">
+    <img src="../../images/shopazon-logo.png" class="cell-logo" alt="logo" style="max-height: 100px;">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <input type="text">
+        <input type="submit" value="submit">
+        <li>
+          <a href="#">Shop</a>
+          <ul class="menu vertical">
+            <li><a href="#">Department</a></li>
+            <li><a href="#">Item</a></li>
+            <li><a href="#">Surprise Me!</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Reigster</a></li>
+        <li><button type="button" class="button">Cart</button></li>
+      </ul>
+    </div>
+  </div>
+  <!-- END TOP BAR -->
+  <!-- ================================================================================================================= -->
   {{{body}}}
 </body>
 
