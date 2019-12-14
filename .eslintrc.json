@@ -9,31 +9,31 @@
         "prettier"
       ],
     "rules": {
-        "no-duplicate-case":"error",
-        "no-empty":"error",
-        "no-extra-semi":"error",
-        "no-func-assign": "error",
-        "no-irregular-whitespace":"error",
-        "no-unreachable": "error",
-        "curly": "error",
-        "dot-notation": "error",
-        "eqeqeq": "error",
-        "no-empty-function": "error",
-        "no-multi-spaces": "error",
-        "no-unused-vars": "error",
-        "camelcase": "error",
+        "no-duplicate-case":"off",
+        "no-empty":"off",
+        "no-extra-semi":"off",
+        "no-func-assign": "off",
+        "no-irregular-whitespace":"off",
+        "no-unreachable": "off",
+        "curly": "off",
+        "dot-notation": "off",
+        "eqeqeq": "off",
+        "no-empty-function": "off",
+        "no-multi-spaces": "off",
+        "no-unused-vars": "off",
+        "camelcase": "off",
         "indent": [
-            "error",
+            "off",
             2
         ],
         "quotes": [
-            "error",
+            "off",
             "double"
         ],
         "semi": [
-            "error",
+            "off",
             "always"
         ],
-        "prettier/prettier": "error"
+        "prettier/prettier": "off"
     }
 }

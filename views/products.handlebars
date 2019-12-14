@@ -1,0 +1,8 @@
+{{#if authenticated}}
+{{> navBar userLoggedIn=true }}
+{{else}}
+{{> navBar userLoggedIn=false name=userName }}
+{{/if}}
+<div id="searchResultsContainer"></div>
+
+<script src="js/allProducts.js"></script>
