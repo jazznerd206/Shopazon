@@ -111,7 +111,7 @@ module.exports = function (app) {
     });
 
     // Load myCart Page
-    app.get("/products", function (req, res) {        
+    app.get("/products/", function (req, res) {        
         if (req.user) {
             res.render("products", {
                 authenticated: true,
@@ -127,7 +127,7 @@ module.exports = function (app) {
     });
 
 
-    app.get("*", function(req, res) {
-        res.render("404");
-      });
+    // app.get("*", function(req, res) {
+    //     res.render("404");
+    //   });
 }
