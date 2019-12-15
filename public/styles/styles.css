@@ -12,11 +12,6 @@ body {
   background: black
 }
 
-/* TOP BAR STYLES */
-.top-bar {
-  overflow: hidden;
-}
-/* END TOP BAR STYLES */
 
 /* STYLING FOR PRODUCT CARDS */
 .box-area {

@@ -26,7 +26,8 @@ require("./routes/department-api-routes")(app);
 require("./routes/product-api-routes")(app);
 require("./routes/order-api-routes")(app);
 require("./routes/orderProduct-api-routes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/html-routes")(app);
+require("./routes/api-routes")(app);
 
 var syncOptions = { force: false };
 
