@@ -3,6 +3,9 @@
     <div class="grid-x grid-margin-y">
         <div class="cell" id="product-path"></div>
         <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
+             {{#if noResults}}
+             <h1>No Results</h1>
+            {{else}}              
             {{#each products}}
             <div class="cell">
                 <div class="card cell-design">
@@ -16,6 +19,7 @@
                 </div>
             </div>
             {{/each}}
+            {{/if}}             
         </div>
     </div>
 </div>
