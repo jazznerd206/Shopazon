@@ -16,17 +16,18 @@ module.exports = function(app) {
   });
 
   // Get route for retrieving a single Products
-  app.get("/api/product/:id", function(req, res) {
-    // 2. Add a join here to include the Department who wrote the Products
-    db.Product.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbProducts) {
-      console.log(dbProducts);
-      res.json(dbProducts);
-    });
-  });
+  // app.get("/api/product/:id", function(req, res) {
+  //   // 2. Add a join here to include the Department who wrote the Products
+  //   db.Product.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     },
+  //     include: [db.Department]
+  //   }).then(function(dbProducts) {
+  //     console.log(dbProducts);
+  //     res.json(dbProducts);      
+  //   });
+  // });
   // Products route for saving a new Products
   app.post("/api/product", function(req, res) {
     db.Product.create(req.body).then(function(dbProducts) {

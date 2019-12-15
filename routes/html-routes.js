@@ -90,22 +90,13 @@ module.exports = function (app) {
             res.render("product", {
                 authenticated: true,
                 userName: "GouriSri",
-                product_name: "Men's Wrist Watch",
-                product_description: "mdchdbdskilgds,hdfsfvcmdfsjfcds,cb.dsgfdcscvdfscdsvfcdsvjvc",
-                product_image: "https://www.att.com/catalog/en/idse/Apple/Apple%20Watch%20Series%205%20-%2044mm/Space%20Gray%20Aluminum%20-%20Black%20Sport-hero-zoom.png",
-                product_price: "$15",
-                department_name: "Men's Accessories"
+                
             });
         }
         else {
             res.render("product", {
                 authenticated: false,
-                product_name: "Men's Wrist Watch",
-                product_description: "mdchdbdskilgds,hdfsfvcmdfsjfcds,cb.dsgfdcscvdfscdsvfcdsvjvc",
-                product_image:"https://picsum.photos/id/0/5616/3744",
-                // product_image: "http://lorempixel.com/output/technics-q-c-300-300-4.jpg",
-                product_price: "$15",
-                department_name: "Men's Accessories"
+                
             });
         }
     });
