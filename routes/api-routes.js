@@ -59,11 +59,11 @@ module.exports = function (app) {
     });
 
 
-    app.get("/api/products/department/:id", function (req, res) {        
+    app.get("/api/products/department/:id", function (req, res) {
         db.Product.findAll({
             where:
             {
-                DepartmentId:req.params.id,
+                DepartmentId: req.params.id,
             },
             include: [db.Department]
         }).then(function (products) {
@@ -87,6 +87,30 @@ module.exports = function (app) {
 
                 );
             }
+        });
+    });
+
+
+    app.get("/api/product/:id", function (req, res) {
+        // 2. Add a join here to include the Department who wrote the Products
+
+        db.Product.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.Department]
+        }).then(function (product) {
+            res.render('partials/productDetails',
+                {
+                    layout: false,
+                    product_name: product.name,
+                    product_description: product.description,
+                    product_image: product.image,
+                    product_price: product.price,
+                    department_name: product.Department.name
+
+                }
+            );
         });
     });
 

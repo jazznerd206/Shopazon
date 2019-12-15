@@ -18,4 +18,10 @@ $(document).ready(function () {
 
     sessionStorage.clear();
 
+    $("#searchResultsContainer").on('click', '.productView', function () {
+        var prod_id = $(this).attr("data-id");
+        sessionStorage.setItem("productViewDetail", prod_id);
+    });
+
+
 });
