@@ -1,25 +1,26 @@
-
 <div class="grid-container cell-design cell-clear product-container">
     <div class="grid-x grid-margin-y">
         <div class="cell" id="product-path"></div>
         <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
-             {{#if noResults}}
-             <h1>No Results</h1>
-            {{else}}              
+            {{#if noResults}}
+            <h1>No Results</h1>
+            {{else}}
             {{#each products}}
-            <div class="cell">
-                <div class="card cell-design">
-                    <img src="{{this.image}}">
-                    <div class="card-section">
+            <div class="cell flex-container">
+                <div class="card cell-design searchResult">
+                    <div class="imageSection">
+                        <img src="{{this.image}}" class="img-responsive">
+                    </div>
+                    <div class="card-section cardContent">
                         <a class="productView" data-id={{this.id}} href="/product/{{this.id}}">
                             <h4>{{this.name}}</h4>
                         </a>
-                        <p>{{this.price}}</p>
+                        <p class="cardPrice">{{this.price}}</p>
                     </div>
                 </div>
             </div>
             {{/each}}
-            {{/if}}             
+            {{/if}}
         </div>
     </div>
 </div>

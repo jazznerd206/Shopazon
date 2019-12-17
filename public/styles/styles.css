@@ -151,3 +151,18 @@ body {
 .product-container{
   margin: 10px auto;
 }
+
+.searchResult {
+  min-width: min-content;
+}
+
+.imageSection{
+  height: 230px;
+}
+.cardContent{
+  display: flex;
+  flex-wrap: wrap;
+}
+.cardPrice{
+align-self: flex-end;
+}
