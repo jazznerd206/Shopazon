@@ -47,19 +47,43 @@
 <div class="grid-container cell-design cell-clear product-container">
     <div class="grid-x grid-margin-y">
         <div class="cell accountContainer cell-design">
-            <p>Name: {{name}}
+            <p>Name: <span id="accountName">{{name}}</span>
                 <button class="button editButton" data-id="{{id}}">Edit</button>
             </p>
             <hr>
-            <p>Email: {{email}}
+            <p>Email: <span id="accountEmail">{{email}}</span>
                 <button class="button editButton" data-id="{{id}}">Edit</button>
             </p>
             <hr>
-            <p>Password: {{password}}
+            <p>Password: <span id="accountPassword">{{password}}</span>
                 <button class="button editButton" data-id="{{id}}">Edit</button>
             </p>
             <hr>
         </div>
     </div>
+    <script>
+        $(document).on("click", ".editButton", function () {
+            var customerID = $(this).data("id");
+            var spanId = $(this).prev().attr("id");
+
+            $("#" + spanId).replaceWith(function () {
+                return $('<input type=text>').attr({
+                    id: spanId,
+                    value: $(this).text()
+                });
+            });
+
+            $(this).text("Done").removeClass("editButton").addClass("doneButton");
+        });
+
+        $(document).on("click", ".doneButton", function () {
+            var spanId = $(this).prev().attr("id");
+            var text = $("#" + spanId).val();
+            $("#" + spanId).replaceWith(function () {
+                return $('<span>').attr("id", spanId).text(text)
+            });
+            $(this).text("Edit").removeClass("doneButton").addClass("editButton");
+        })
+    </script>
 
 </html>
