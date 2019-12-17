@@ -1,0 +1,49 @@
+<div class="wrap cf">
+        <h6 class="projTitle">Your Total : <span id="topTotalValueSpan">${{totalFinalValue}}</span><a href="#" class="btn payAmt" id="proceedCheckOut">Proceed To CheckOut</a></h6>        
+        <div class="heading cf">
+            <h1>My Cart</h1>
+            <a href="#" class="btn continue">Continue Shopping</a>
+        </div>
+        <div class="cart">
+            <ul>
+                {{#each cart_products}}
+
+                <li class="items">
+                    <div class="itemsWrap">
+                        <div class="itemSection">
+                            <img class="itemImg" src="{{this.image}}" alt="PRODUCT IMAGE SRC" class="itemImg" />
+                            <p class="itemDescription">{{this.description}}</p>
+                            <h3 class="itemTitle">{{this.name}}</h3>
+                            <p class="itemPrice">${{this.price}}</p>
+                            <p class="itemQty">Quantity: <input type="number" class="qtyInput" value={{this.quantity}}></p>
+                            <!-- <p class="itemStockStatus">PRODUCT STATUS STOCK</p> -->
+                        </div>
+                        <div class="itemSection prodTotal">
+                            <p class="cartItemCost">${{multiply this.quantity this.price }}</p>
+                        </div>
+                        <div class="itemSection removeWrap">
+                            <a href="#" class="itemRemove">x</a>
+                        </div>
+                        </div>                    
+                </li>
+            {{/each}}                
+            </ul>
+        </div>
+
+        <div class="promoCode">
+            <label for="promo">Have A Promo Code?</label>
+            <input type="text" name="promo" placholder="Enter Code" />
+            <a href="#" id="promoButton" class="btn"></a>
+        </div>
+
+        <div class="subtotal cf">
+            <ul style="list-style-type: none">
+                <li class="totalRow"><span class="subTotalLabel">Subtotal</span><span id="subTotalValueSpan" class="subTotalValue">${{subTotalValue}}</span></li>
+                <li class="totalRow"><span class="subTotalLabel">Shipping</span><span id="shippingValueSpan" class="subTotalValue">${{shippingValue}}</span></li>
+                <li  class="totalRow"><span class="subTotalLabel">Tax</span><span id="taxValueSpan" class="subTotalValue">${{taxValue}}</span></li>
+                <li  class="totalRow finalValue"><span class="subTotalLabel">Total</span><span id="totalFinalValueSpan" class="subTotalValue">${{totalFinalValue}}</span></li>
+                <li class="totalRow"><a href="#" class="btn continue payAmt">Checkout</a></li>
+                <p id="stripePublicKey" aria-hidden="true">{{stripePublicKey}}</p>
+            </ul>
+        </div>
+    </div>
