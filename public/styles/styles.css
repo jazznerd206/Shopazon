@@ -166,3 +166,14 @@ body {
 .cardPrice{
 align-self: flex-end;
 }
+
+.accountContainer{
+  background: white;
+  width: 50%;
+  margin: 10px auto;
+  padding: 30px;
+}
+
+.editButton{
+  float: right;
+}
