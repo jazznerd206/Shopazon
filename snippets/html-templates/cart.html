@@ -1,0 +1,309 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FOUNDATION CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css"
+        integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg=="
+        crossorigin="anonymous">
+    <!-- Local CSS and JS Files -->
+    <!-- <link rel="stylesheet" href="../../public/styles/cartPagestyles.css"> -->
+    <link rel="stylesheet" href="../../public/styles/styles.css">
+    <!-- <script src="../../public/js/index.js"></script> -->
+    <title>Shopazon</title>
+</head>
+
+<style>
+    .modal-container {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+
+    .log-in-form {
+        border: 1px solid #cacaca;
+        padding: 1rem;
+        border-radius: 25px;
+    }
+
+    .register-form {
+        border: 1px solid #cacaca;
+        padding: 1rem;
+        border-radius: 25px;
+    }
+
+    .text-align {
+        text-align: center;
+    }
+
+
+
+
+    /* foundation shopping cart styles */
+
+    .checkout-summary {
+        margin: 0 auto;
+        max-width: 800px;
+        background-color: #fefefe;
+        border-radius: 25px;
+    }
+
+    .checkout-summary-title {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .checkout-summary-item {
+        border-left: 1px solid #e6e6e6;
+        border-right: 1px solid #e6e6e6;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .checkout-summary-item .item-name,
+    .checkout-summary-item .item-price {
+        padding: 0 1rem;
+    }
+
+    .checkout-summary-item .item-name p,
+    .checkout-summary-item .item-price p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .checkout-summary-item .title {
+        font-weight: bold;
+    }
+
+    .checkout-summary-details {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 1rem;
+        border: 1px solid #e6e6e6;
+        border-top: none;
+    }
+
+    /* counter css */
+
+    .input-number-group {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .input-number-group input[type=number]::-webkit-inner-spin-button,
+    .input-number-group input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .input-number-group .input-group-button {
+        line-height: calc(80px/2 - 5px);
+    }
+
+    .input-number-group .input-number {
+        width: 80px;
+        padding: 0 12px;
+        text-align: center;
+        outline: none;
+        display: block;
+        margin: 0;
+    }
+
+    .input-number-group .input-number,
+    .input-number-group .input-number-decrement,
+    .input-number-group .input-number-increment {
+        border: 1px solid #cacaca;
+        height: 40px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border-radius: 0;
+    }
+
+    .input-number-group .input-number-decrement,
+    .input-number-group .input-number-increment {
+        display: inline-block;
+        width: 40px;
+        background: #e6e6e6;
+        color: #0a0a0a;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    /* .input-number-group .input-number-decrement {
+  margin-right: 0.3rem;
+}
+
+.input-number-group .input-number-increment {
+  margin-left: 0.3rem;
+} */
+</style>
+
+<body>
+    <!-- LOGIN MODAL -->
+    <div class="modal-container">
+        <a class="button" href="#" data-open="loginModal">Open Login</a>
+        <div class="reveal" id="loginModal" class="padding" data-reveal>
+            <form class="log-in-form" id="loginForm">
+                <h4 class="text-center">Log in with you email account</h4>
+                <label>Email
+                    <input type="email" id="loginInputEmail" placeholder="somebody@example.com">
+                </label>
+                <label>Password
+                    <input type="password" id="loginInputPassword" placeholder="Password">
+                </label>
+                <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
+                <p><input type="submit" class="button expanded" value="Log in"></input></p>
+                <p class="text-center"><a href="#">Forgot your password?</a></p>
+            </form>
+
+            <a class="close-button" data-close>×</a>
+
+        </div>
+    </div>
+    <!-- END LOGIN MODAL -->
+
+
+    <!-- REGISTER MODAL -->
+    <div class="modal-container">
+        <a class="button" href="#" data-open="registerModal">Open Register</a>
+        <div class="reveal" id="registerModal" class="padding" data-reveal>
+            <form class="register-form" id="registerForm">
+                <h4 class="text-center">Log in with you email account</h4>
+                <label>Name
+                    <input type="text" id="RegisterInputName" placeholder="Full Name">
+                    <label>Email
+                        <input type="email" id="RegisterInputEmail" placeholder="somebody@example.com">
+                    </label>
+                    <label>Password
+                        <input type="password" id="RegisterInputPassword" placeholder="Password">
+                    </label>
+                    <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
+                    <p><input type="submit" class="button expanded" value="Log in"></input></p>
+                    <p class="text-center"><a href="#">Forgot your password?</a></p>
+            </form>
+
+            <a class="close-button" data-close>×</a>
+
+        </div>
+    </div>
+    <!-- END REGISTER MODAL -->
+
+
+
+
+    <!-- foundation shopping cart -->
+    <div class="grid-container">
+        <div class="grid-x cell-clear">
+            <div class="cell small-6 text-align">
+                <h1>YOUR CART</h1>
+            </div>
+            <div class="cell small-6 text-align">
+                <button class="button continue" id="continueShopping">Continue Shopping</button>
+            </div>
+            <div class="cell small-6 text-align">
+                <h4>Your total: <span id="topTotalValueSpan">${{totalFinalValue}}</span></h4>
+            </div>
+            <div class="cell small-6 text-align">
+                <button class="button" id="proceedCheckOut">Proceed to Checkout</button>
+            </div>
+
+            <div class="cell">
+                <div class="checkout-summary">
+                    <div class="checkout-summary-title">
+                        <h5>Your Order</h5>
+                        <h5><span id="itemCount"></span> Item(s)</h5>
+                    </div>
+
+
+
+
+                    <div class="checkout-summary-item">
+                        <div class="item-name">
+                            <img class="itemImg" src="{{this.image}}" alt="PRODUCT IMAGE SRC" class="itemImg" />
+                            <p class="itemDescription">{{this.description}}</p>
+                            <h3 class="itemTitle">{{this.name}}</h3>
+                            <p class="itemPrice">${{this.price}}</p>
+                            <p class="itemQty">Quantity: <input type="number" class="qtyInput" value={{this.quantity}}>
+                            </p>
+                        </div>
+                        <div class="item-price">
+                            <p class="cartItemCost">${{multiply this.quantity this.price }}</p>
+                            <a class="itemRemove" href="#">Remove</a>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="checkout-summary-details">
+                        <div class="left">
+                            <p><span class="subTotalLabel">Subtotal</span></p>
+                            <p><span class="subTotalLabel">Shipping</span></p>
+                            <p><span class="subTotalLabel">Tax</span></p>
+                            <p><span class="subTotalLabel">Total</span></p>
+                        </div>
+                        <div class="right">
+                            <p id="subtotal"><span id="subTotalValueSpan"
+                                    class="subTotalValue">${{subTotalValue}}</span></p>
+                            <p id="shipping"><span id="shippingValueSpan"
+                                    class="subTotalValue">${{shippingValue}}</span></p>
+                            <p id="tax"><span id="taxValueSpan" class="subTotalValue">${{taxValue}}</span></p>
+                            <p id="total"><span id="totalFinalValueSpan"
+                                    class="subTotalValue">${{totalFinalValue}}</span></p>
+                            <button class="button float-right" id="proceedCheckOut">Proceed to Checkout</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- FOUNDATION JS -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.0/dist/js/foundation.min.js"></script>
+
+
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+
+
+</html>
