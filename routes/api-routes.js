@@ -147,37 +147,22 @@ module.exports = function (app) {
     });
 })
 
-
-    var carts=[
-        {
-            name:"Mustela",
-            description:"Stress-Free Skin Care Simplify your baby's skin care routine while protecting against dry skin on baby's face, nose, cheeks, and lips. Use Mustela",
-            price:5.00,
-            image:"https://picsum.photos/id/100/2500/1656",
-            quantity:2
-        },
-        {
-            name:"Aveeno Shampoo",
-            description:"Rich lathering wash & shampoo formula rinses clean & leaves a light, fresh fragrance Gentle and tear-free formula cleanses without drying",
-            price:7.00,
-            image:"https://picsum.photos/id/100/2500/1656",
-            quantity:4
-        }
-      
-    ]
-
-
     app.get("/api/mycart", function (req, res) {
         // 2. Add a join here to include the Department who wrote the Products
-       
-        // if (sessionStorage.getItem('userCartInSession')) {
-        //     cart_products= sessionStorage.getItem("userCartInSession");
-        //     console.log(JSON.stringify(cart_products));
-        // }
+       /*
+        if (sessionStorage.getItem('userCartInSession')) {
+            cart_products= sessionStorage.getItem("userCartInSession");
+            console.log(JSON.stringify(cart_products));
+        }*/
         
-            
         //declare and send all required variables
-
+        var query = {};
+        if (req.query.customer_id) {
+          query.UserId = req.query.customer_id;
+        }
+        db.Cart.findAll({
+          where: query
+        }).then(function(carts) {
           prices=carts.map(function(cart){return cart.price * cart.quantity;});
         
             res.render('partials/cartDetails',
@@ -189,10 +174,11 @@ module.exports = function (app) {
                     totalFinalValue:40,
                     subTotalValue:30,
                     shippingValue:6,
-                    taxValue:4,                    
-
+                    taxValue:4
                 }
             );
+        });
+          
     })
        
 
