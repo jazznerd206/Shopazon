@@ -159,10 +159,16 @@ body {
 .imageSection{
   height: 230px;
 }
+
+.imageSection img{
+  max-height: 100%;
+}
+
 .cardContent{
   display: flex;
   flex-wrap: wrap;
 }
+
 .cardPrice{
 align-self: flex-end;
 }
