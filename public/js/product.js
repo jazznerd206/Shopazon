@@ -32,25 +32,28 @@ $(document).ready(function () {
             currentSessionCart = [currentSessionCart];
         }
 
-        // //check if new cart already exists
-        // var found = false;
-        // for (var i = 0; i < currentSessionCart.length; i++) {
-        //     if (currentSessionCart[i].product_id === newCartItem.product_id) {
-        //         found = true;
-        //         currentSessionCart[i].product_quantity = currentSessionCart[i].product_quantity + newCartItem.product_quantity;
-        //         break;
-        //     }
-        // }
-        
-        // if (!found) {
+        var notFoundInCart = true;
+        alert(currentSessionCart.length);
+
+        if (currentSessionCart.length > 1) {
+            //check if new cart already exists        
+            for (var i = 0; i < currentSessionCart.length; i++) {
+                if (currentSessionCart[i].product_id === newCartItem.product_id) {
+                    notFoundInCart = false;
+                    currentSessionCart[i].product_quantity = currentSessionCart[i].product_quantity + newCartItem.product_quantity;
+                    break;
+                }
+            }
+
+        }
+
+        if (notFoundInCart) {
             // if not, create one
             currentSessionCart.push(newCartItem);
-        //}
+        }
 
         // push a new student inside of it
         sessionStorage.setItem("userCartInSession", JSON.stringify(currentSessionCart));
-
-
 
     });
 
