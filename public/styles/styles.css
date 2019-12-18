@@ -239,3 +239,9 @@ form.login {
 }
 
 /*end of  login styles*/
+
+/* Cart Page Styling */
+.cartHeader{
+  max-width: 800px;
+  margin: 0 auto;
+}

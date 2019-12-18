@@ -18,31 +18,11 @@
 </head>
 
 <style>
-    .modal-container {
-        margin: 0 auto;
-        max-width: 400px;
-    }
-
-    .log-in-form {
-        border: 1px solid #cacaca;
-        padding: 1rem;
-        border-radius: 25px;
-    }
-
-    .register-form {
-        border: 1px solid #cacaca;
-        padding: 1rem;
-        border-radius: 25px;
-    }
-
+    /* foundation shopping cart styles */
     .text-align {
         text-align: center;
     }
 
-
-
-
-    /* foundation shopping cart styles */
 
     .checkout-summary {
         margin: 0 auto;
@@ -52,26 +32,14 @@
     }
 
     .checkout-summary-title {
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
         justify-content: space-between;
         padding: 1rem;
     }
 
     .checkout-summary-item {
-        border-left: 1px solid #e6e6e6;
-        border-right: 1px solid #e6e6e6;
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
         justify-content: space-between;
-        padding: 1rem;
-        border-bottom: 1px solid #e6e6e6;
     }
 
     .checkout-summary-item .item-name,
@@ -90,20 +58,14 @@
     }
 
     .checkout-summary-details {
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
         justify-content: space-between;
         padding: 1rem;
-        border: 1px solid #e6e6e6;
-        border-top: none;
     }
 
     /* counter css */
 
-    .input-number-group {
+    /* .input-number-group {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
@@ -154,7 +116,7 @@
         cursor: pointer;
         font-size: 2rem;
         font-weight: 400;
-    }
+    } */
 
     /* .input-number-group .input-number-decrement {
   margin-right: 0.3rem;
@@ -166,84 +128,111 @@
 </style>
 
 <body>
-    <!-- LOGIN MODAL -->
-    <div class="modal-container">
-        <a class="button" href="#" data-open="loginModal">Open Login</a>
-        <div class="reveal" id="loginModal" class="padding" data-reveal>
-            <form class="log-in-form" id="loginForm">
-                <h4 class="text-center">Log in with you email account</h4>
-                <label>Email
-                    <input type="email" id="loginInputEmail" placeholder="somebody@example.com">
-                </label>
-                <label>Password
-                    <input type="password" id="loginInputPassword" placeholder="Password">
-                </label>
-                <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
-                <p><input type="submit" class="button expanded" value="Log in"></input></p>
-                <p class="text-center"><a href="#">Forgot your password?</a></p>
+    <div class="top-bar cell-design">
+        <img src="../../images/shopazon-logo.png" class="cell-logo" alt="logo" style="max-height: 100px;">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <input type="text" id="searchProduct">
+                <input href="#" type="submit" value="submit" id="submitSearch">
+                <li>
+                    <a href="#">Shop</a>
+                    <ul id="departmentDropDown" class="menu vertical">
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                {{#if userLoggedIn}}
+                <li><i class='fa fa-user-circle'></i><a id="userName" href="/account"></a></li>
+                <li><a id="logOutBtn"> Logout</a></li>
+                {{else}}
+                <li><a id="loginBtn"><i class='fa fa-lock'></i> LOGIN</a></li>
+                <li><a id="registerBtn"><i class="fa fa-user-plus"></i> REGISTER</a></li>
+                {{/if}}
+                <li><a class="button" id="shoppingCartBtn" href="/mycart"><i class="fa fa-shopping-cart"></i>
+                        SHOPPING-CART</a></li>
+                <li>
+                    <p id="cartCount">0</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="form-popup" id="loginForm">
+            <form class="form-container login">
+                <h1>Login</h1>
+                <div class="form-group">
+                    <label for="loginInputEmail">Email address</label>
+                    <input type="email" class="form-control" id="loginInputEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="loginInputPassword">Password</label>
+                    <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
+                </div>
+                <p id="loginMsg">No Account Yet? Please sign up here</p>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
+        </div>
 
-            <a class="close-button" data-close>×</a>
 
+        <div class="form-popup" id="registerForm">
+            <form class="form-container register">
+                <h1>Register</h1>
+                <div class="form-group">
+                    <label for="RegisterInputName">Name</label>
+                    <input type="text" class="form-control" id="RegisterInputName" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="RegisterInputEmail">Email address</label>
+                    <input type="email" class="form-control" id="RegisterInputEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="RegisterInputPassword">Password</label>
+                    <input type="password" class="form-control" id="RegisterInputPassword" placeholder="Password">
+                </div>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <p id="registerMsg"></p>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
         </div>
     </div>
-    <!-- END LOGIN MODAL -->
 
-
-    <!-- REGISTER MODAL -->
-    <div class="modal-container">
-        <a class="button" href="#" data-open="registerModal">Open Register</a>
-        <div class="reveal" id="registerModal" class="padding" data-reveal>
-            <form class="register-form" id="registerForm">
-                <h4 class="text-center">Log in with you email account</h4>
-                <label>Name
-                    <input type="text" id="RegisterInputName" placeholder="Full Name">
-                    <label>Email
-                        <input type="email" id="RegisterInputEmail" placeholder="somebody@example.com">
-                    </label>
-                    <label>Password
-                        <input type="password" id="RegisterInputPassword" placeholder="Password">
-                    </label>
-                    <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
-                    <p><input type="submit" class="button expanded" value="Log in"></input></p>
-                    <p class="text-center"><a href="#">Forgot your password?</a></p>
-            </form>
-
-            <a class="close-button" data-close>×</a>
-
-        </div>
-    </div>
-    <!-- END REGISTER MODAL -->
+    <script src="/js/navBar.js"></script>
+    <script src="/js/login.js"></script>
 
 
 
 
     <!-- foundation shopping cart -->
     <div class="grid-container">
-        <div class="grid-x cell-clear">
-            <div class="cell small-6 text-align">
-                <h1>YOUR CART</h1>
+        <div class="grid-x cell-clear cell-design">
+            <div class="cell text-align cartHeader">
+                <h1 class="float-left">YOUR CART</h1>
+                <button class="button continue float-right" id="continueShopping">Continue Shopping</button>
             </div>
-            <div class="cell small-6 text-align">
-                <button class="button continue" id="continueShopping">Continue Shopping</button>
+            <div class="cell text-align cartHeader">
+                <h4 class="float-left">Your total: <span id="topTotalValueSpan">${{totalFinalValue}}</span></h4>
+                <button class="button float-right" id="proceedCheckOut">Proceed to Checkout</button>
             </div>
-            <div class="cell small-6 text-align">
-                <h4>Your total: <span id="topTotalValueSpan">${{totalFinalValue}}</span></h4>
-            </div>
-            <div class="cell small-6 text-align">
-                <button class="button" id="proceedCheckOut">Proceed to Checkout</button>
-            </div>
-
             <div class="cell">
-                <div class="checkout-summary">
+                <div class="checkout-summary cell-design">
                     <div class="checkout-summary-title">
                         <h5>Your Order</h5>
                         <h5><span id="itemCount"></span> Item(s)</h5>
                     </div>
-
-
-
-
                     <div class="checkout-summary-item">
                         <div class="item-name">
                             <img class="itemImg" src="{{this.image}}" alt="PRODUCT IMAGE SRC" class="itemImg" />
@@ -258,11 +247,6 @@
                             <a class="itemRemove" href="#">Remove</a>
                         </div>
                     </div>
-
-
-
-
-
                     <div class="checkout-summary-details">
                         <div class="left">
                             <p><span class="subTotalLabel">Subtotal</span></p>
@@ -280,12 +264,8 @@
                                     class="subTotalValue">${{totalFinalValue}}</span></p>
                             <button class="button float-right" id="proceedCheckOut">Proceed to Checkout</button>
                         </div>
-
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     </div>
