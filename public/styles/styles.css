@@ -151,3 +151,35 @@ body {
 .product-container{
   margin: 10px auto;
 }
+
+.searchResult {
+  min-width: min-content;
+}
+
+.imageSection{
+  height: 230px;
+}
+
+.imageSection img{
+  max-height: 100%;
+}
+
+.cardContent{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardPrice{
+align-self: flex-end;
+}
+
+.accountContainer{
+  background: white;
+  width: 50%;
+  margin: 10px auto;
+  padding: 30px;
+}
+
+.editButton, .doneButton{
+  float: right;
+}
