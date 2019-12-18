@@ -233,6 +233,7 @@
                         <h5>Your Order</h5>
                         <h5><span id="itemCount"></span> Item(s)</h5>
                     </div>
+                    {{#each cart_products}}
                     <div class="checkout-summary-item">
                         <div class="item-name">
                             <img class="itemImg" src="{{this.image}}" alt="PRODUCT IMAGE SRC" class="itemImg" />
@@ -247,6 +248,7 @@
                             <a class="itemRemove" href="#">Remove</a>
                         </div>
                     </div>
+                    {{/each}}
                     <div class="checkout-summary-details">
                         <div class="left">
                             <p><span class="subTotalLabel">Subtotal</span></p>
