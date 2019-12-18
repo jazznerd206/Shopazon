@@ -170,10 +170,10 @@ module.exports = function (app) {
     app.get("/api/mycart", function (req, res) {
         // 2. Add a join here to include the Department who wrote the Products
        
-        if (sessionStorage.getItem('userCartInSession')) {
-            cart_products= sessionStorage.getItem("userCartInSession");
-            console.log(JSON.stringify(cart_products));
-        }
+        // if (sessionStorage.getItem('userCartInSession')) {
+        //     cart_products= sessionStorage.getItem("userCartInSession");
+        //     console.log(JSON.stringify(cart_products));
+        // }
         
             
         //declare and send all required variables
