@@ -3,16 +3,10 @@
     <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
             <input type="text" id="searchProduct">
-            <input type="submit" value="submit" id="submitSearch">
+            <input href="#" type="submit" value="submit" id="submitSearch">
             <li>
                 <a href="#">Shop</a>
-                {{!-- {{#each departments}}
-                <li><a href="#">{{name}}</a></li>
-                {{/each}} --}}
                 <ul id="departmentDropDown" class="menu vertical">
-                    {{!-- <li><a href="#">Department</a></li>
-                    <li><a href="#">Item</a></li>
-                    <li><a href="#">Surprise Me!</a></li> --}}
                 </ul>
             </li>
         </ul>
@@ -20,15 +14,70 @@
     <div class="top-bar-right">
         <ul class="menu">
             {{#if userLoggedIn}}
-            <li><i class='fa fa-user-circle'></i> Hello <a id="userName" href="/account"></a></li>
+            <li><i class='fa fa-user-circle'></i><a id="userName" href="/account"></a></li>
             <li><a id="logOutBtn"> Logout</a></li>
-            {{else}}              
+            {{else}}
             <li><a id="loginBtn"><i class='fa fa-lock'></i> LOGIN</a></li>
             <li><a id="registerBtn"><i class="fa fa-user-plus"></i> REGISTER</a></li>
-            {{/if}}            
-            <li><a class="button" href="/mycart"><i class="fa fa-shopping-cart"></i> SHOPPING-CART</a></li>
+            {{/if}}
+            <li><a class="button" id="shoppingCartBtn" href="/mycart"><i class="fa fa-shopping-cart"></i> SHOPPING-CART</a></li>
+            <li>
+                <p id="cartCount">0</p>
+            </li>
         </ul>
+    </div>
+
+    <div class="form-popup" id="loginForm">
+        <form class="form-container login">
+            <h1>Login</h1>
+            <div class="form-group">
+                <label for="loginInputEmail">Email address</label>
+                <input type="email" class="form-control" id="loginInputEmail" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="loginInputPassword">Password</label>
+                <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
+            </div>
+            <p id="loginMsg">No Account Yet? Please sign up here</p>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+
+    <div class="form-popup" id="registerForm">
+        <form class="form-container register">
+            <h1>Register</h1>
+            <div class="form-group">
+                <label for="RegisterInputName">Name</label>
+                <input type="text" class="form-control" id="RegisterInputName" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="RegisterInputEmail">Email address</label>
+                <input type="email" class="form-control" id="RegisterInputEmail" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="RegisterInputPassword">Password</label>
+                <input type="password" class="form-control" id="RegisterInputPassword" placeholder="Password">
+            </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <p id="registerMsg"></p>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
     </div>
 </div>
 
 <script src="/js/navBar.js"></script>
+<script src="/js/login.js"></script>

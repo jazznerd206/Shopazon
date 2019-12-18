@@ -12,6 +12,9 @@ NOW()),
 ('Sport',
 NOW(),
 NOW());
+
+
+
 INSERT INTO `shopazon_db`.`Products`
 (
 `name`,
