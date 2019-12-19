@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "tyler",
+    "password": "yourRootPassword",
     "database": "shopazon_db",
     "host": "localhost",
     "dialect": "mysql"
