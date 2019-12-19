@@ -30,7 +30,6 @@ $(document).ready(function () {
         $.get("/api/user_data").then(function (data) {
 
             if (data.email) {
-                alert("user loggedin" + data.name);
 
                 newCartItem.UserId = data.id;
 
@@ -43,7 +42,7 @@ $(document).ready(function () {
                 
                 $.get("/api/product/detail/"+prodId,function(data){
                     
-                    alert(data);
+                   
                     newCartItem.Product=data;
                     
                     var currentSessionCart = JSON.parse(sessionStorage.getItem("userCartInSession"));

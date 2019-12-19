@@ -1,5 +1,7 @@
 function closeForm() {
     $(".form-popup").css("display", "none");
+    //$(".modal-container").css("display", "none");
+    
 };
 
 $(document).ready(function () {
@@ -23,7 +25,7 @@ $(document).ready(function () {
     var loginPasswordInput = $("#loginInputPassword");
 
     // When the form is submitted, we validate there's an email and password entered
-    loginForm.on("submit", function (event) {
+    $(".login").on("submit", function (event) {
         event.preventDefault();
         var userData = {
             email: loginEmailInput.val().trim(),
@@ -63,16 +65,15 @@ $(document).ready(function () {
 
 
     //signup logic
-    var registerNameInput = $("#RegisterInputName");
-    var registerEmailInput = $("#RegisterInputEmail");
-    var registerPasswordInput = $("#RegisterInputPassword");
+    
 
-    registerForm.on("submit", function (event) {
+    $(".register-form").on("submit", function (event) {
         event.preventDefault();
+        
         var userData = {
-            name: registerNameInput.val().trim(),
-            email: registerEmailInput.val().trim(),
-            password: registerPasswordInput.val().trim()
+            name: $("#RegisterInputName").val().trim(),
+            email: $("#RegisterInputEmail").val().trim(),
+            password: $("#RegisterInputPassword").val().trim()
         };
 
         if (!userData.name || !userData.email || !userData.password) {
@@ -80,9 +81,9 @@ $(document).ready(function () {
         }
         // If we have an email and password, run the signUpUser function
         signUpUser(userData.name, userData.email, userData.password);
-        registerNameInput.val("");
-        registerEmailInput.val("");
-        registerPasswordInput.val("");
+        $("#RegisterInputName").val("");
+        $("#RegisterInputEmail").val("");
+        $("#RegisterInputPassword").val("");
     });
 
     $("#registerMsg").on("click", function () {
@@ -128,7 +129,7 @@ $(document).ready(function () {
        
         if(err.responseText==="Unauthorized")
         {
-            alert("please enter valid credentials");
+            
             $("#alert .msg").text("please enter valid credentials");
         }
         else{

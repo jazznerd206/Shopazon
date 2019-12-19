@@ -1,3 +1,149 @@
+.modal-container {
+  margin: 0 auto;
+  max-width: 400px;
+}
+.log-in-form {
+border: 1px solid #cacaca;
+padding: 1rem;
+border-radius: 25px;
+}
+.register-form {
+border: 1px solid #cacaca;
+padding: 1rem;
+border-radius: 25px;
+}
+.text-align {
+text-align: center;
+}
+/* foundation shopping cart styles */
+.checkout-summary {
+margin: 0 auto;
+max-width: 800px;
+background-color: #fefefe;
+border-radius: 25px;
+}
+.checkout-summary-title {
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+padding: 1rem;
+}
+.checkout-summary-item {
+border-left: 1px solid #e6e6e6;
+border-right: 1px solid #e6e6e6;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+padding: 1rem;
+border-bottom: 1px solid #e6e6e6;
+}
+.checkout-summary-item .item-name,
+.checkout-summary-item .item-price {
+padding: 0 1rem;
+}
+.checkout-summary-item .item-name p,
+.checkout-summary-item .item-price p {
+margin: 0;
+padding: 0;
+}
+.checkout-summary-item .title {
+font-weight: bold;
+}
+.checkout-summary-details {
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+padding: 1rem;
+border: 1px solid #e6e6e6;
+border-top: none;
+}
+/* counter css */
+.input-number-group {
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-justify-content: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+.input-number-group input[type=number]::-webkit-inner-spin-button,
+.input-number-group input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+        appearance: none;
+}
+.input-number-group .input-group-button {
+line-height: calc(80px/2 - 5px);
+}
+.input-number-group .input-number {
+width: 80px;
+padding: 0 12px;
+vertical-align: top;
+text-align: center;
+outline: none;
+display: block;
+margin: 0;
+}
+.input-number-group .input-number,
+.input-number-group .input-number-decrement,
+.input-number-group .input-number-increment {
+border: 1px solid #cacaca;
+height: 40px;
+-webkit-user-select: none;
+   -moz-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+border-radius: 0;
+}
+.input-number-group .input-number-decrement,
+.input-number-group .input-number-increment {
+display: inline-block;
+width: 40px;
+background: #e6e6e6;
+color: #0a0a0a;
+text-align: center;
+font-weight: bold;
+cursor: pointer;
+font-size: 2rem;
+font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
   background-image: radial-gradient(#bdc3c7, #2c3e50);
 }

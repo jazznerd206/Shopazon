@@ -4,12 +4,10 @@ $(document).ready(function () {
 
     var stripePublicKey = "pk_test_b4AAxcmoeMP5eZA8wAxIGRio00UfmNadj1";
 
-    alert("point2");
     loadCart();
 
     function loadCart() {
         //get user 
-        alert("point3");
         $.get("/api/user_data").then(function (data) {
 
             //get cart items based on user
@@ -59,7 +57,8 @@ $(document).ready(function () {
                     });
                 }
                 else {
-                    alert("no data in session");
+                    $("#loadCartDiv").append("<h1> No Items are added to your cart</h1> <button> <a href="/" Start Shopping</a></button>");
+
                 }
 
             }
@@ -93,43 +92,14 @@ $(document).ready(function () {
         key: stripePublicKey,
         locale: 'en',
         token: function (token) {
-            // var cartitemsOrdered = [];
-            //
-            // var cartItemContainer = $(".carts");
-            // var cartRows = cartItemContainer.getElementsByClassName('cart-row');
-            // for (var i = 0; i < cartRows.length; i++) {
-            //     var cartRow = cartRows[i]
-            //     var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-            //     var quantity = quantityElement.value
-            //     var id = cartRow.dataset.itemId
-            //     items.push({
-            //         id: id,
-            //         quantity: quantity
-            //     })    
-            alert("token code");
+
+            //update every cart for that user to ordered status
+
             $(".carts").each(function () {
-                alert($this);
+               
 
             })
-            var carts = [
-                {
-                    name: "Mustela",
-                    description: "Stress-Free Skin Care Simplify your baby's skin care routine while protecting against dry skin on baby's face, nose, cheeks, and lips. Use Mustela",
-                    price: 5.00,
-                    image: "https://picsum.photos/id/100/2500/1656",
-                    quantity: 2
-                },
-                {
-                    name: "Aveeno Shampoo",
-                    description: "Rich lathering wash & shampoo formula rinses clean & leaves a light, fresh fragrance Gentle and tear-free formula cleanses without drying",
-                    price: 7.00,
-                    image: "https://picsum.photos/id/100/2500/1656",
-                    quantity: 4
-                }
-
-            ]
-            alert("CARTS" + carts);
-
+            
             $.ajax({
                 type: 'POST',
                 url: '/api/purchase',
@@ -137,7 +107,7 @@ $(document).ready(function () {
                 data: JSON.stringify({ stripeTokenId: token.id, items: carts }),
                 dataType: 'json',
                 success: function (res) {
-                    alert("succedded");
+                    alert("Payment Succesful");
                 },
                 //         return res.json(),
                 error: function (error) {
@@ -155,19 +125,30 @@ $(document).ready(function () {
     })
 
     $("#loadCartDiv").on("click", ".payAmt", function () {
-        var price = parseFloat(($("#totalFinalValueSpan").text().substring(1, $("#totalFinalValueSpan").text().length)) * 100);
 
+        var price = parseFloat(($("#totalFinalValueSpan").text().substring(1, $("#totalFinalValueSpan").text().length)) * 100);
+        $.get("/api/user_data").then(function (data) {
+
+            //get cart items based on user
+            if (data.email) {
         stripeHandler.open({
             amount: price
         })
+    }
+    else{
+        alert("Please login or register to checkout");
+    }
 
     })
+})
 
 
     $(document).on("click", ".itemRemove", handleRemoveItem);
 
     function handleRemoveItem() {
-        alert($(this));
+        $(this).remove();
+
+        //delete item from db
     }
 
 

@@ -1,4 +1,110 @@
-<div class="wrap cf">
+<div class="grid-container">
+    <div class="grid-x cell-clear">
+        <div class="cell small-6 text-align">
+            <h1>YOUR CART</h1>
+        </div>
+        <div class="cell small-6 text-align">
+            <button class="button continue" id="continueShopping" href="/">Continue Shopping</button>
+        </div>
+        <div class="cell small-6 text-align">
+            <h4>Your total: <span id="topTotalValueSpan">${{totalFinalValue}}</span></h4>
+        </div>
+        <div class="cell small-6 text-align">
+            <button class="button payAmt" id="proceedCheckOut">Proceed to Checkout</button>
+        </div>
+
+        <div class="cell">
+            <div class="checkout-summary">
+                <div class="checkout-summary-title">
+                    <h5>Your Order</h5>
+                    <h5><span id="itemCount"></span> Item(s)</h5>
+                </div>
+
+                {{#each cart_products}}
+
+                <div class="checkout-summary-item">
+                    <div class="item-name">
+                        <img class="itemImg" src="{{this.Product.image}}" alt="PRODUCT IMAGE SRC" class="itemImg" />
+                        <p class="itemDescription">{{this.Product.description}}</p>
+                        <h3 class="itemTitle">{{this.Product.name}}</h3>
+                        <p class="itemPrice">${{this.Product.price}}</p>
+                        <p class="itemQty">Quantity: <input type="number" class="qtyInput" value={{this.quantity}}></p>
+                    </div>
+                    <div class="item-price">
+                        <p class="cartItemCost">${{multiply this.quantity this.Product.price}}</p>
+                        <a class="itemRemove" href="#">Remove</a>
+                    </div>
+                </div>
+
+                {{/each}}
+
+
+
+                <div class="checkout-summary-details">
+                    <div class="left">
+                        <p><span class="subTotalLabel">Subtotal</span></p>
+                        <p><span class="subTotalLabel">Shipping</span></p>
+                        <p><span class="subTotalLabel">Tax</span></p>
+                        <p><span class="subTotalLabel">Total</span></p>
+                    </div>
+                    <div class="right">
+                        <p id="subtotal"><span id="subTotalValueSpan" class="subTotalValue">${{sum prices}}</span></p>
+                        <p id="shipping"><span id="shippingValueSpan" class="subTotalValue">${{shippingValue}}</span>
+                        </p>
+                        <p id="tax"><span id="taxValueSpan" class="subTotalValue">${{taxValue}}</span></p>
+                        <p id="total"><span id="totalFinalValueSpan" class="subTotalValue">${{totalFinalValue}}</span>
+                        </p>
+                        <button class="button float-right payAmt" id="proceedCheckOut">Proceed to Checkout</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div class="wrap cf">
         <h6 class="projTitle">Your Total : <span id="topTotalValueSpan">${{totalFinalValue}}</span><a href="#" class="btn payAmt" id="proceedCheckOut">Proceed To CheckOut</a></h6>        
         <div class="heading cf">
             <h1>My Cart</h1>
@@ -43,7 +149,6 @@
                 <li  class="totalRow"><span class="subTotalLabel">Tax</span><span id="taxValueSpan" class="subTotalValue">${{taxValue}}</span></li>
                 <li  class="totalRow finalValue"><span class="subTotalLabel">Total</span><span id="totalFinalValueSpan" class="subTotalValue">${{totalFinalValue}}</span></li>
                 <li class="totalRow"><a href="#" class="btn continue payAmt">Checkout</a></li>
-                <p id="stripePublicKey" aria-hidden="true">{{stripePublicKey}}</p>
             </ul>
         </div>
-    </div>
+    </div> --}}

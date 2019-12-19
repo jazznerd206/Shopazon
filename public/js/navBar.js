@@ -33,21 +33,11 @@ $(document).ready(function () {
         });
     }
 
-    $(window).bind('storage', function (e) {
-        alert('change');
-        updateShoppingCartItemCount();
-    });
 
     function updateShoppingCartItemCount() {
-
-        if (sessionStorage.getItem('userCartInSession') !== null) {
-            $("#cartCount").text(sessionStorage.getItem('userCartInSession').length);
-        }
-
+        //need to implement
 
     }
-
-
 
     function addDepartmentsToDropDown(departments) {
         for (var i = 0; i < departments.length; i++) {
@@ -67,7 +57,6 @@ $(document).ready(function () {
     $(document).on("click", "#shoppingCartBtn", showCart);
 
     function showCart() {
-        alert("point1");
         window.location.href = "/mycart";
     }
 
