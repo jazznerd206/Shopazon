@@ -12,12 +12,13 @@
             <div class="checkout-summary cell-design">
                 <div class="checkout-summary-title">
                     <h5>Your Order</h5>
+                    <h5 class="float-left">Ship To:</h5>
                     <h5><span id="itemCount"></span> Item(s)</h5>
                 </div>
                 {{#each cart_products}}
                 <div class="checkout-summary-item grid-x">
                     <div class="item-name cell small-7">
-                        <img class="itemImg" src="{{this.image}}" class="itemImg"/>
+                        <img class="itemImg" src="{{this.image}}" class="itemImg" />
                         <h3 class="itemTitle">{{this.name}}</h3>
                         <p class="itemDescription">{{this.description}}</p>
                         <p class="itemPrice">${{this.price}}</p>
@@ -25,7 +26,8 @@
                         </p>
                     </div>
                     <div class="item-price cell small-5">
-                        <p class="float-right">Total Product Cost: <span class="cartItemCost">${{multiply this.quantity this.price }}</span></p>
+                        <p class="float-right">Total Product Cost: <span
+                                class="cartItemCost">${{multiply this.quantity this.price }}</span></p>
                         <button class="itemRemove button float-right">Remove</button>
                     </div>
                 </div>
