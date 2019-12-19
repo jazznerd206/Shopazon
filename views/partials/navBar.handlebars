@@ -46,29 +46,32 @@
         </div>
     </div>
 
-    <div class="modal-container form-popup" id="registerForm">
+    {{!-- <div class="modal-container form-popup" id="loginForm">
         <div class="reveal" id="registerModal" class="padding" data-reveal>
-            <form class="register-form register">
-                <h4 class="text-center">Log in with you email account</h4>
-                <label>Name
-                    <input type="text" id="RegisterInputName" placeholder="Full Name">
-                    <label>Email
-                        <input type="email" id="RegisterInputEmail" placeholder="somebody@example.com">
-                    </label>
-                    <label>Password
-                        <input type="password" id="RegisterInputPassword" placeholder="Password">
-                    </label>
-                    <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
-                    <p><input type="submit" class="button expanded" value="Register"></input></p>
-                    <p class="text-center"><a href="#">Forgot your password?</a></p>
-            </form>
+        <form class="form-container register-form register">
+            <h1>Register</h1>
+            <div class="form-group">
+                <label for="RegisterInputName">Name</label>
+                <input type="text" class="form-control" id="RegisterInputName" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="RegisterInputEmail">Email address</label>
+                <input type="email" class="form-control" id="RegisterInputEmail" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="RegisterInputPassword">Password</label>
+                <input type="password" class="form-control" id="RegisterInputPassword" placeholder="Password">
+            </div>
+            <p><input type="submit" class="button expanded register-form" value="Register"></input></p>
+
+        </form>
             <a class="close-button" data-close>×</a>
         </div>
     </div>
-
+ --}}
 
     <div class="form-popup" id="registerForm">
-        <form class="form-container register">
+        <form class="form-container register-form register">
             <h1>Register</h1>
             <div class="form-group">
                 <label for="RegisterInputName">Name</label>
