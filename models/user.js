@@ -25,6 +25,13 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     });
+    User.associate = function(models) {
+      // Associating department with Posts
+      // When an department is deleted, also delete any associated Posts
+      User.hasMany(models.Address, {
+        onDelete: "cascade"
+      });
+    };
 
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
