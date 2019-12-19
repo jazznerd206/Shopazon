@@ -51,7 +51,7 @@ $(document).ready(function () {
             $.get("/api/user_data").then(function (data) {
                 closeForm();
                 // $("#loginBtn").css("display", "none");
-                if (data) {
+                if (data.email) {
                     $("#userName").text("Hello " + data.name);
                 }
                 window.location.replace(res);
