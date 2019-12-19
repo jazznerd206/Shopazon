@@ -17,35 +17,53 @@
             <li><i class='fa fa-user-circle'></i><a id="userName" href="/account"></a></li>
             <li><a id="logOutBtn"> Logout</a></li>
             {{else}}
-            <li><a id="loginBtn"><i class='fa fa-lock'></i> LOGIN</a></li>
-            <li><a id="registerBtn"><i class="fa fa-user-plus"></i> REGISTER</a></li>
+            <li><a id="loginBtn" data-open="loginModal"><i class='fa fa-lock'></i> LOGIN</a></li>
+            <li><a id="registerBtn" data-open="registerModal"><i class="fa fa-user-plus"></i> REGISTER</a></li>
             {{/if}}
-            <li><a class="button" id="shoppingCartBtn" href="/mycart"><i class="fa fa-shopping-cart"></i> SHOPPING-CART</a></li>
-            <li>
-                <p id="cartCount">0</p>
+            <li><a class="button" id="shoppingCartBtn" href="#"><i class="fa fa-shopping-cart"></i> SHOPPING-CART</a>
             </li>
+            {{!-- <li>
+                <p id="cartCount">0</p>
+            </li> --}}
         </ul>
     </div>
 
-    <div class="form-popup" id="loginForm">
-        <form class="form-container login">
-            <h1>Login</h1>
-            <div class="form-group">
-                <label for="loginInputEmail">Email address</label>
-                <input type="email" class="form-control" id="loginInputEmail" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="loginInputPassword">Password</label>
-                <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
-            </div>
-            <p id="loginMsg">No Account Yet? Please sign up here</p>
-            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
+    <div class="modal-container form-popup" id="loginForm">
+        <div class="reveal" id="loginModal" class="padding" data-reveal>
+            <form class="log-in-form login">
+                <h4 class="text-center">Log in with you email account</h4>
+                <label>Email
+                    <input type="email" id="loginInputEmail" placeholder="somebody@example.com">
+                </label>
+                <label>Password
+                    <input type="password" id="loginInputPassword" placeholder="Password">
+                </label>
+                <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
+                <p><input type="submit" class="button expanded" value="Log in"></input></p>
+                <p class="text-center"><a href="#">Forgot your password?</a></p>
+            </form>
+            <a class="close-button" data-close>×</a>
+        </div>
+    </div>
+
+    <div class="modal-container form-popup" id="registerForm">
+        <div class="reveal" id="registerModal" class="padding" data-reveal>
+            <form class="register-form register">
+                <h4 class="text-center">Log in with you email account</h4>
+                <label>Name
+                    <input type="text" id="RegisterInputName" placeholder="Full Name">
+                    <label>Email
+                        <input type="email" id="RegisterInputEmail" placeholder="somebody@example.com">
+                    </label>
+                    <label>Password
+                        <input type="password" id="RegisterInputPassword" placeholder="Password">
+                    </label>
+                    <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
+                    <p><input type="submit" class="button expanded" value="Register"></input></p>
+                    <p class="text-center"><a href="#">Forgot your password?</a></p>
+            </form>
+            <a class="close-button" data-close>×</a>
+        </div>
     </div>
 
 
@@ -79,5 +97,43 @@
     </div>
 </div>
 
+
+
 <script src="/js/navBar.js"></script>
 <script src="/js/login.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div class="form-popup" id="loginForm">
+        <form class="form-container login">
+            <h1>Login</h1>
+            <div class="form-group">
+                <label for="loginInputEmail">Email address</label>
+                <input type="email" class="form-control" id="loginInputEmail" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="loginInputPassword">Password</label>
+                <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
+            </div>
+            <p id="loginMsg">No Account Yet? Please sign up here</p>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div> --}}

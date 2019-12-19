@@ -45,6 +45,7 @@ require("./routes/address-api-routes")(app);
 require("./routes/orderProduct-api-routes")(app);
 require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
+require("./routes/cart-api-routes")(app);
 
 var syncOptions = { force: false };
 

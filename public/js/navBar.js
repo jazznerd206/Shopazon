@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-
     $.get("/api/user_data").then(function (data) {
         if (data.id) {
             $("#userName").text("Hello " + data.name);
@@ -35,20 +33,15 @@ $(document).ready(function () {
         });
     }
 
-    $(window).bind('storage', function (e) {
-        alert('change');
-        updateShoppingCartItemCount();
-    });
 
     function updateShoppingCartItemCount() {
+        //need to implement
 
         if (sessionStorage.getItem('userCartInSession') !== null) {
             $("#cartCount").text(sessionStorage.getItem('userCartInSession').length)
             console.log($("#cartCount"))
         }
     }
-
-
 
     function addDepartmentsToDropDown(departments) {
         for (var i = 0; i < departments.length; i++) {
@@ -65,7 +58,10 @@ $(document).ready(function () {
     }
 
 
+    $(document).on("click", "#shoppingCartBtn", showCart);
 
-
+    function showCart() {
+        window.location.href = "/mycart";
+    }
 
 });//end of document
