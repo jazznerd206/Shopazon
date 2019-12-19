@@ -29,7 +29,7 @@ module.exports = function(app) {
   });
   // Products route for saving a new Products
   app.post("/api/product", function(req, res) {
-    db.Product.create(req.body).then(function(dbProducts) {
+    db.shopazon_db.create(req.body).then(function(dbProducts) {
       res.json(dbProducts);
     });
   });
