@@ -1,4 +1,9 @@
-var expect = require("chai").expect;
+var chai = require("chai");
+var chaiHttp = require("chai-http");
+var server = require("../server");
+var db = require("../models");
+var expect = chai.expect;
+
 
 describe("canary test", function() {
   // A "canary" test is one we set up to always pass

@@ -12,6 +12,7 @@ A place to buy anything your heart desires...
 ## Installation
 
 - git clone git@github.com:jazznerd206/Project-Two.git
+- npm i
 - add your own authentication variables where applicable (.env)
 
 ## Usage
