@@ -2,8 +2,7 @@ $(document).ready(function () {
 
     var stripePublicKey="pk_test_b4AAxcmoeMP5eZA8wAxIGRio00UfmNadj1";
     $.get("/api/mycart", function (data) {                
-        $("#loadCartDiv").append(data); 
-             
+        $("#loadCartDiv").append(data)     
     });    
     
 
