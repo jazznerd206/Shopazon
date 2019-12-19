@@ -1,0 +1,27 @@
+{{#if authenticated}}
+{{> navBar userLoggedIn=true }}
+{{else}}
+{{> navBar userLoggedIn=false name=userName }}
+{{/if}}
+
+
+
+<div class="grid-container cell-design cell-clear product-container">
+    <div class="grid-x grid-margin-y">
+        <div class="cell accountContainer cell-design">
+            <p>Name: <span id="accountName">{{name}}</span>
+                <button class="button editButton" data-id="{{id}}">Edit</button>
+            </p>
+            <hr>
+            <p>Email: <span id="accountEmail">{{email}}</span>
+                <button class="button editButton" data-id="{{id}}">Edit</button>
+            </p>
+            <hr>
+            <p>Password: <span id="accountPassword"></span>
+                <button class="button editButton" data-id="{{id}}">Edit</button>
+            </p>
+            <hr>
+        </div>
+    </div>
+
+    <script src="/js/account.js"></script>

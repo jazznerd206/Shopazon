@@ -11,54 +11,75 @@ $(document).ready(function () {
         });
     }
 
-
     //var userCartInSession;
-
-
 
     $("#productViewContainer").on("click", ".addToCartBtn", function (event) {
         event.preventDefault();
-        var prodQty = $(".productQuantity").val().trim();
-        alert(prodQty);
+        var prodQty = parseFloat($(".productQuantity").val().trim());
+        
+
 
         //prepare the cart object
         var newCartItem = {
-            product_id: prodId,
-            product_quantity: prodQty
-        }
-        var currentSessionCart = JSON.parse(sessionStorage.getItem("userCartInSession"));
-        // now let's check if the stored value is an array
-        if (!(currentSessionCart instanceof Array)) {
-            currentSessionCart = [currentSessionCart];
+            ProductId: prodId,
+            quantity: prodQty,
+            status:"addedToCart",
         }
 
-        var notFoundInCart = true;
-        alert(currentSessionCart.length);
+        //check if user is in
+        $.get("/api/user_data").then(function (data) {
 
-        if (currentSessionCart.length > 1) {
-            //check if new cart already exists        
-            for (var i = 0; i < currentSessionCart.length; i++) {
-                if (currentSessionCart[i].product_id === newCartItem.product_id) {
-                    notFoundInCart = false;
-                    currentSessionCart[i].product_quantity = currentSessionCart[i].product_quantity + newCartItem.product_quantity;
-                    break;
-                }
+            if (data.email) {
+
+                newCartItem.UserId = data.id;
+
+                $.post("/api/cart", newCartItem, function () {
+                  console.log("cart item added to db "+newCartItem);
+                })
+                
             }
-
-        }
-
-        if (notFoundInCart) {
-            // if not, create one
-            currentSessionCart.push(newCartItem);
-        }
-
-        // push a new student inside of it
-        sessionStorage.setItem("userCartInSession", JSON.stringify(currentSessionCart));
+            else {
+                
+                $.get("/api/product/detail/"+prodId,function(data){
+                    
+                   
+                    newCartItem.Product=data;
+                    
+                    var currentSessionCart = JSON.parse(sessionStorage.getItem("userCartInSession"));
+                    // now let's check if the stored value is an array
+                    if (!(currentSessionCart instanceof Array)) {
+                        currentSessionCart = [currentSessionCart];
+                    }
+    
+                    var notFoundInCart = true;
+    
+                    if (currentSessionCart.length > 2) {
+                        //check if new cart already exists        
+                        for (var i = 1; i < currentSessionCart.length; i++) {
+                            if (currentSessionCart[i].product_id === newCartItem.product_id) {
+                                notFoundInCart = false;
+                                currentSessionCart[i].product_quantity = parseFloat(currentSessionCart[i].product_quantity) + newCartItem.product_quantity;
+                                break;
+                            }
+                        }
+    
+                    }
+    
+                    if (notFoundInCart) {
+                        // if not, create one
+                        currentSessionCart.push(newCartItem);
+                    }
+    
+                    // push a new cartItem inside of it
+                    sessionStorage.setItem("userCartInSession", JSON.stringify(currentSessionCart));
+    
+                })
+                
+                
+               
+            }
+        })
 
     });
-
-
-
-
 
 });  //end of document
