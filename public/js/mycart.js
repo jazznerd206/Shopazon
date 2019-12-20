@@ -15,7 +15,7 @@ $(document).ready(function () {
             if (data.email) {
                 //get from db           
                 $.get("/api/cart/status/" + "addedToCart", function (data1) {
-                    alert("my products "+JSON.stringify(data1));
+                   // alert("my products "+JSON.stringify(data1));
                     $.ajax({
                         type: 'POST',
                         url: '/api/mycart',
@@ -142,7 +142,7 @@ window.location.replace("/");
         })
     }
     else{
-        alert("Please login or register to checkout");
+        //alert("Please login or register to checkout");
         $("#loginBtn").click();
     }
 
