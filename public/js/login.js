@@ -6,7 +6,7 @@ function closeForm() {
 
 $(document).ready(function () {
     // Getting references to our form and inputs
-    var loginForm = $("#loginForm");
+    var loginForm = $(".login");
     var registerForm = $("#registerForm");
 
     $("#loginBtn").on("click",

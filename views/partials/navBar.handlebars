@@ -47,27 +47,31 @@
         </div>
     </div>
 
-    <div class="modal-container form-popup" id="registerForm">
+    <div class="modal-container form-popup" id="loginForm">
         <div class="reveal" id="registerModal" class="padding" data-reveal>
-            <form class="register-form register">
-                <h4 class="text-center">Log in with you email account</h4>
-                <label>Name
-                    <input type="text" id="RegisterInputName" placeholder="Full Name">
-                    <label>Email
-                        <input type="email" id="RegisterInputEmail" placeholder="somebody@example.com">
-                    </label>
-                    <label>Password
-                        <input type="password" id="RegisterInputPassword" placeholder="Password">
-                    </label>
-                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+        <form class="form-container register-form register">
+            <h1>Register</h1>
+            <div class="form-group">
+                <label for="RegisterInputName">Name</label>
+                <input type="text" class="form-control" id="RegisterInputName" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="RegisterInputEmail">Email address</label>
+                <input type="email" class="form-control" id="RegisterInputEmail" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="RegisterInputPassword">Password</label>
+                <input type="password" class="form-control" id="RegisterInputPassword" placeholder="Password">
+            </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <span class="sr-only">Error:</span> <span class="msg"></span>
                     </div>
                     <p id="registerMsg" style="display:inline-block"></p><a style="color:blue" id="linkMsg" href="#"></a>
                     <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
-                    <p><input type="submit" class="button expanded" value="Register"></input></p>
-                    <p class="text-center"><a href="#">Forgot your password?</a></p>
-            </form>
+            <p><input type="submit" class="button expanded register-form" value="Register"></input></p>
+
+        </form>
             <a class="close-button" data-close>×</a>
         </div>
     </div>
@@ -86,61 +90,6 @@
 
 
 
-    {{!-- 
-
-  <div class="form-popup" id="registerForm">
-        <form class="form-container register">
-            <h1>Register</h1>
-            <div class="form-group">
-                <label for="RegisterInputName">Name</label>
-                <input type="text" class="form-control" id="RegisterInputName" placeholder="Name">
-            </div>
-            <div class="form-group">
-                <label for="RegisterInputEmail">Email address</label>
-                <input type="email" class="form-control" id="RegisterInputEmail" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="RegisterInputPassword">Password</label>
-                <input type="password" class="form-control" id="RegisterInputPassword" placeholder="Password">
-            </div>
-            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
-            <p id="registerMsg"></p>
-            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
-            <button type="submit" class="btn">Register</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-    </div> --}}
+   
 </div>
 
-
-
-
-
-
-{{!-- <div class="form-popup" id="loginForm">
-        <form class="form-container login">
-            <h1>Login</h1>
-            <div class="form-group">
-                <label for="loginInputEmail">Email address</label>
-                <input type="email" class="form-control" id="loginInputEmail" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="loginInputPassword">Password</label>
-                <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
-            </div>
-            <p id="loginMsg">No Account Yet? Please sign up here</p>
-            
-            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-    </div> --}}

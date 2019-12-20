@@ -1,0 +1,291 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FOUNDATION CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css"
+        integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg=="
+        crossorigin="anonymous">
+    <!-- Local CSS and JS Files -->
+    <!-- <link rel="stylesheet" href="../../public/styles/cartPagestyles.css"> -->
+    <link rel="stylesheet" href="../../public/styles/styles.css">
+    <!-- <script src="../../public/js/index.js"></script> -->
+    <title>Shopazon</title>
+</head>
+
+<style>
+    /* foundation shopping cart styles */
+    .text-align {
+        text-align: center;
+    }
+
+
+    .checkout-summary {
+        margin: 0 auto;
+        max-width: 800px;
+        background-color: #fefefe;
+        border-radius: 25px;
+    }
+
+    .checkout-summary-title {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .checkout-summary-item {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .checkout-summary-item .item-name,
+    .checkout-summary-item .item-price {
+        padding: 0 1rem;
+    }
+
+    .checkout-summary-item .item-name p,
+    .checkout-summary-item .item-price p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .checkout-summary-item .title {
+        font-weight: bold;
+    }
+
+    .checkout-summary-details {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    /* counter css */
+
+    /* .input-number-group {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .input-number-group input[type=number]::-webkit-inner-spin-button,
+    .input-number-group input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .input-number-group .input-group-button {
+        line-height: calc(80px/2 - 5px);
+    }
+
+    .input-number-group .input-number {
+        width: 80px;
+        padding: 0 12px;
+        text-align: center;
+        outline: none;
+        display: block;
+        margin: 0;
+    }
+
+    .input-number-group .input-number,
+    .input-number-group .input-number-decrement,
+    .input-number-group .input-number-increment {
+        border: 1px solid #cacaca;
+        height: 40px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border-radius: 0;
+    }
+
+    .input-number-group .input-number-decrement,
+    .input-number-group .input-number-increment {
+        display: inline-block;
+        width: 40px;
+        background: #e6e6e6;
+        color: #0a0a0a;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 400;
+    } */
+
+    /* .input-number-group .input-number-decrement {
+  margin-right: 0.3rem;
+}
+
+.input-number-group .input-number-increment {
+  margin-left: 0.3rem;
+} */
+</style>
+
+<body>
+    <div class="top-bar cell-design">
+        <img src="../../images/shopazon-logo.png" class="cell-logo" alt="logo" style="max-height: 100px;">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <input type="text" id="searchProduct">
+                <input href="#" type="submit" value="submit" id="submitSearch">
+                <li>
+                    <a href="#">Shop</a>
+                    <ul id="departmentDropDown" class="menu vertical">
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                {{#if userLoggedIn}}
+                <li><i class='fa fa-user-circle'></i><a id="userName" href="/account"></a></li>
+                <li><a id="logOutBtn"> Logout</a></li>
+                {{else}}
+                <li><a id="loginBtn"><i class='fa fa-lock'></i> LOGIN</a></li>
+                <li><a id="registerBtn"><i class="fa fa-user-plus"></i> REGISTER</a></li>
+                {{/if}}
+                <li><a class="button" id="shoppingCartBtn" href="/mycart"><i class="fa fa-shopping-cart"></i>
+                        SHOPPING-CART</a></li>
+                <li>
+                    <p id="cartCount">0</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="form-popup" id="loginForm">
+            <form class="form-container login">
+                <h1>Login</h1>
+                <div class="form-group">
+                    <label for="loginInputEmail">Email address</label>
+                    <input type="email" class="form-control" id="loginInputEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="loginInputPassword">Password</label>
+                    <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
+                </div>
+                <p id="loginMsg">No Account Yet? Please sign up here</p>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+
+        <div class="form-popup" id="registerForm">
+            <form class="form-container register">
+                <h1>Register</h1>
+                <div class="form-group">
+                    <label for="RegisterInputName">Name</label>
+                    <input type="text" class="form-control" id="RegisterInputName" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="RegisterInputEmail">Email address</label>
+                    <input type="email" class="form-control" id="RegisterInputEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="RegisterInputPassword">Password</label>
+                    <input type="password" class="form-control" id="RegisterInputPassword" placeholder="Password">
+                </div>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <p id="registerMsg"></p>
+                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/navBar.js"></script>
+    <script src="/js/login.js"></script>
+
+
+
+
+    <!-- foundation shopping cart -->
+    <div class="grid-container">
+        <div class="grid-x cell-clear cell-design">
+            <div class="cell text-align cartHeader">
+                <h1 class="float-left">YOUR CART</h1>
+                <button class="button continue float-right" id="continueShopping">Continue Shopping</button>
+            </div>
+            <div class="cell text-align cartHeader">
+                <h4 class="float-left">Your total: <span id="topTotalValueSpan">${{totalFinalValue}}</span></h4>
+                <button class="button float-right" id="proceedCheckOut">Proceed to Checkout</button>
+            </div>
+            <div class="cell">
+                <div class="checkout-summary cell-design">
+                    <div class="checkout-summary-title">
+                        <h5>Your Order</h5>
+                        <h5><span id="itemCount"></span> Item(s)</h5>
+                    </div>
+                    {{#each cart_products}}
+                    <div class="checkout-summary-item">
+                        <div class="item-name">
+                            <img class="itemImg" src="{{this.image}}" alt="PRODUCT IMAGE SRC" class="itemImg" />
+                            <p class="itemDescription">{{this.description}}</p>
+                            <h3 class="itemTitle">{{this.name}}</h3>
+                            <p class="itemPrice">${{this.price}}</p>
+                            <p class="itemQty">Quantity: <input type="number" class="qtyInput" value={{this.quantity}}>
+                            </p>
+                        </div>
+                        <div class="item-price">
+                            <p class="cartItemCost">${{multiply this.quantity this.price }}</p>
+                            <a class="itemRemove" href="#">Remove</a>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <div class="checkout-summary-details">
+                        <div class="left">
+                            <p><span class="subTotalLabel">Subtotal</span></p>
+                            <p><span class="subTotalLabel">Shipping</span></p>
+                            <p><span class="subTotalLabel">Tax</span></p>
+                            <p><span class="subTotalLabel">Total</span></p>
+                        </div>
+                        <div class="right">
+                            <p id="subtotal"><span id="subTotalValueSpan"
+                                    class="subTotalValue">${{subTotalValue}}</span></p>
+                            <p id="shipping"><span id="shippingValueSpan"
+                                    class="subTotalValue">${{shippingValue}}</span></p>
+                            <p id="tax"><span id="taxValueSpan" class="subTotalValue">${{taxValue}}</span></p>
+                            <p id="total"><span id="totalFinalValueSpan"
+                                    class="subTotalValue">${{totalFinalValue}}</span></p>
+                            <button class="button float-right" id="proceedCheckOut">Proceed to Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- FOUNDATION JS -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.0/dist/js/foundation.min.js"></script>
+
+
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+
+
+</html>

@@ -150,14 +150,14 @@ body {
 .button {
   border: 2px solid black;
   border-radius: 10%;
+  font-size: 1em;
 }
 .button:hover {
   color: #fff;
   border: 2px solid white;
   border-radius: 20%;
-  background: black
+  background: black;
 }
-
 
 /* STYLING FOR PRODUCT CARDS */
 .box-area {
@@ -178,7 +178,7 @@ body {
 }
 .box-img img {
   width: 100%;
-  transition: .3s;
+  transition: 0.3s;
   object-fit: contain;
   max-width: 100%;
   border-radius: 25px;
@@ -193,7 +193,7 @@ body {
   text-align: center;
   overflow: hidden;
   bottom: 0;
-  transition: .4s;
+  transition: 0.4s;
   background: #fff;
   z-index: 5;
   border-radius: 25px;
@@ -203,7 +203,7 @@ body {
 }
 .upper-info {
   padding: 5px 20px 5px 20px;
-  transition: .5s;
+  transition: 0.5s;
 }
 .upperinfo h3 {
   text-transform: uppercase;
@@ -237,8 +237,8 @@ body {
   padding: 0 10px 5px;
 }
 @media only screen and (max-width: 767px) {
-  .single-box{
-       margin-bottom: 30px;
+  .single-box {
+    margin-bottom: 30px;
   }
 }
 /* END FULL SIZE PRODUCT CARD STYLING, BEGIN EXTRA FOR SMALL CARDS */
@@ -251,7 +251,7 @@ body {
 }
 .single-box-small:hover .box-img img {
   transform: scale(1.1);
-  filter: blur(.5em);
+  filter: blur(0.5em);
 }
 .buttons .button-group {
   display: none;
@@ -259,11 +259,11 @@ body {
 }
 .buttons .button-group {
   width: 100%;
-  transition: .3s;
+  transition: 0.3s;
   object-fit: contain;
   max-width: 100%;
 }
-.single-box-small:hover .buttons .button-group{
+.single-box-small:hover .buttons .button-group {
   display: block;
   position: absolute;
   bottom: 0;
@@ -294,10 +294,46 @@ body {
 }
 
 /* Product Page Styling */
-.product-container{
+.product-container {
   margin: 10px auto;
 }
+.searchResult {
+  min-width: min-content;
+}
 
+.imageSection {
+  height: 230px;
+}
+
+.imageSection img {
+  max-height: 100%;
+}
+
+.cardContent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardPrice {
+  align-self: flex-end;
+}
+
+.accountContainer {
+  background: white;
+  width: 50%;
+  margin: 10px auto;
+  padding: 30px;
+}
+
+.editButton,
+.doneButton {
+  float: right;
+}
+
+#large-product-image {
+  max-width: 80%;
+  padding: 10px;
+}
 
 /* login styles*/
 form.signup,
@@ -305,22 +341,21 @@ form.login {
   margin-top: 50px;
 }
 
-#loginForm, #registerForm {
+#loginForm,
+#registerForm {
   display: none;
   position: fixed;
-  top:20%; 
+  top: 20%;
   right: 40%;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
 
-
 .form-container {
-  max-width: 300px;
+  /* max-width: 300px; */
   padding: 10px;
   background-color: white;
 }
-
 
 /* .form-container input[type=text], .form-container input[type=password] {
   width: 100%;
@@ -335,52 +370,74 @@ form.login {
   outline: none;
 } */
 
-
 .form-container .btn {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   opacity: 0.8;
 }
-
 
 .form-container .cancel {
   background-color: red;
 }
 
 /*end of  login styles*/
-.searchResult {
-  min-width: min-content;
+
+/* Cart Page Styling */
+.cartHeader{
+  max-width: 800px;
+  margin: 0 auto;
+}
+.text-align {
+  text-align: center;
 }
 
-.imageSection{
-  height: 230px;
+
+.checkout-summary {
+  margin: 0 auto;
+  max-width: 800px;
+  background-color: #fefefe;
+  border-radius: 25px;
 }
 
-.imageSection img{
-  max-height: 100%;
-}
-
-.cardContent{
+.checkout-summary-title {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
-.cardPrice{
-align-self: flex-end;
+.checkout-summary-item {
+  display: flex;
+  justify-content: space-between;
 }
 
-.accountContainer{
-  background: white;
-  width: 50%;
-  margin: 10px auto;
-  padding: 30px;
+.checkout-summary-item .item-name,
+.checkout-summary-item .item-price {
+  padding: 0 1rem;
 }
 
-.editButton, .doneButton{
-  float: right;
+.checkout-summary-item .item-name p,
+.checkout-summary-item .item-price p {
+  margin: 0;
+  padding: 0;
+}
+
+.checkout-summary-item .title {
+  font-weight: bold;
+}
+
+.checkout-summary-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.right{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
