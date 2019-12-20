@@ -5,50 +5,7 @@
 {{/if}}
 
 
- {{!-- <div id="indexProductsContainer"></div> --}}
- <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-    <div class="orbit-wrapper">
-        <nav class="orbit-bullets">
-        <button class="is-active" data-slide="0">
-        <span class="show-for-sr">First slide details.</span>
-        <span class="show-for-sr" data-slide-active-label>Current Slide</span>
-        </button>
-        <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-        <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-        <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-    </nav>
-        <div class="orbit-controls">
-        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-        </div>
-        <ul style="height:auto" class="orbit-container">
-        {{#each orbitProducts}}
-            <li class="orbit-slide is-active">
-                <figure class="orbit-figure">
-                    <div class="single-box">
-                        <div class="box-img">
-                            <a class="productView" data-id={{this.id}} href="/product/{{this.id}}"><img src="{{this.image}}"></a>
-                        </div>
-                        <div class="box-content">
-                            <div class="button-group success">
-                                <div class="dropdown button expanded">Button</div>
-                            </div>
-                            <div class="upper-info">
-                                <h3>{{this.name}}</h3>
-                                <p>{{info}}</p>
-                            </div>
-                            <p class="lower-info">{{this.description}}</p>
-                        </div>
-                    </div>
-                </figure>
-            </li>
-        {{/each}}
-        </ul>
-    </div>
-    
-    </div>
-
-    <div style="margin-top:1em" class="grid-container cell-design cell-clear product-container">
+ <div style="margin-top:1em" class="grid-container cell-design cell-clear product-container">
     <div class="grid-x grid-margin-y">
         <div class="cell" id="product-path"></div>
         <div style="margin:0 auto;font-size:2em"><h1>LATEST PRODUCTS</h1></div>
@@ -97,5 +54,49 @@
         </div>
     </div>
 </div>
+ {{!-- <div id="indexProductsContainer"></div> --}}
+ <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+    <div class="orbit-wrapper">
+        <nav class="orbit-bullets">
+        <button class="is-active" data-slide="0">
+        <span class="show-for-sr">First slide details.</span>
+        <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+        </button>
+        <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+        <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+        <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+    </nav>
+        <div class="orbit-controls">
+        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+        </div>
+        <ul style="height:auto" class="orbit-container">
+        {{#each orbitProducts}}
+            <li class="orbit-slide is-active">
+                <figure class="orbit-figure">
+                    <div class="single-box">
+                        <div class="box-img">
+                            <a class="productView" data-id={{this.id}} href="/product/{{this.id}}"><img src="{{this.image}}"></a>
+                        </div>
+                        <div class="box-content">
+                            <div class="button-group success">
+                                <div class="dropdown button expanded">Button</div>
+                            </div>
+                            <div class="upper-info">
+                                <h3>{{this.name}}</h3>
+                                <p>{{info}}</p>
+                            </div>
+                            <p class="lower-info">{{this.description}}</p>
+                        </div>
+                    </div>
+                </figure>
+            </li>
+        {{/each}}
+        </ul>
+    </div>
+    
+    </div>
+
+   
 
 <script src="/js/index.js"></script>
