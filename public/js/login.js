@@ -1,7 +1,7 @@
 function closeForm() {
     $(".form-popup").css("display", "none");
     //$(".modal-container").css("display", "none");
-    
+
 };
 
 $(document).ready(function () {
@@ -18,6 +18,7 @@ $(document).ready(function () {
         function () {
             registerForm.css("display", "block");
             $("#registerMsg").text("");
+            $("#linkMsg").text("");
         });
 
     // LOGIN LOGIC
@@ -54,9 +55,14 @@ $(document).ready(function () {
                 closeForm();
                 // $("#loginBtn").css("display", "none");
                 if (data.email) {
+                    $("#logOutBtn").show();
+                    $("#loginBtn").hide();
+                    $("#registerBtn").hide();
                     $("#userName").text("Hello " + data.name);
+                    postCartItemsToDB(data.id);
                 }
-                window.location.replace(res);
+                // window.location.replace("/");  
+                window.location.reload();
             });
             // If there's an error, log the error
         }).catch(handleLoginErr);
@@ -65,11 +71,11 @@ $(document).ready(function () {
 
 
     //signup logic
-    
+
 
     $(".register-form").on("submit", function (event) {
         event.preventDefault();
-        
+
         var userData = {
             name: $("#RegisterInputName").val().trim(),
             email: $("#RegisterInputEmail").val().trim(),
@@ -81,12 +87,10 @@ $(document).ready(function () {
         }
         // If we have an email and password, run the signUpUser function
         signUpUser(userData.name, userData.email, userData.password);
-        $("#RegisterInputName").val("");
-        $("#RegisterInputEmail").val("");
-        $("#RegisterInputPassword").val("");
+
     });
 
-    $("#registerMsg").on("click", function () {
+    $("#linkMsg").on("click", function () {
         //close the form
         closeForm();
         //click login button
@@ -94,7 +98,7 @@ $(document).ready(function () {
 
     })
 
-    $("#loginMsg").on("click", function () {
+    $("#loginLinkMsg").on("click", function () {
         //close the form
         closeForm();
         //click login button
@@ -111,7 +115,12 @@ $(document).ready(function () {
             password: password
         }).then(function (res) {
             $.get("/api/user_data").then(function (data) {
-                $("#registerMsg").text("Succesfully Registered. Please Login");
+                $("#registerMsg").text("You are Succesfully Registered !..  ");
+                $("#linkMsg").text("Please Login");
+                $("#RegisterInputName").val("");
+                $("#RegisterInputEmail").val("");
+                $("#RegisterInputPassword").val("");
+                
                 //window.location.replace();               
             });
 
@@ -119,23 +128,55 @@ $(document).ready(function () {
         }).catch(handleLoginErr);
     }
 
-    $("#logOutBtn").on("click",function(){
-        $.get("/api/logout").then(function (data) {       
-            window.location.replace();       
+    function postCartItemsToDB(userId) {
+        var currentSessionCart = JSON.parse(sessionStorage.getItem("userCartInSession"));
+        //alert(JSON.stringify(currentSessionCart));
+        // now let's check if the stored value is an array
+
+        if (!(currentSessionCart instanceof Array)) {
+            currentSessionCart = [currentSessionCart];
+
+        }
+
+        for (var i = 1; i < currentSessionCart.length; i++) {
+            
+            var newCartItem = {
+                ProductId: currentSessionCart[i].ProductId,
+                quantity: currentSessionCart[i].quantity,
+                status: "addedToCart",
+                UserId: userId,
+            }
+            $.post("/api/cart", newCartItem, function () {
+               // alert("added to db");             //remove from session
+            })
+        }
+        sessionStorage.clear();
+        //window.location.replace("/mycart");
+
+
+
+        //post each one to cart db
+
+
+    }
+
+
+    $("#logOutBtn").on("click", function () {
+        $.get("/api/logout").then(function (data) {
+            window.location.replace("/");
         })
     })
 
     function handleLoginErr(err) {
-       
-        if(err.responseText==="Unauthorized")
-        {
-            
+
+        if (err.responseText === "Unauthorized") {
+
             $("#alert .msg").text("please enter valid credentials");
         }
-        else{
+        else {
             $("#alert .msg").text(err.responseJSON);
-        }     
-        
+        }
+
         $("#alert").fadeIn(50);
     }
 

@@ -2,6 +2,8 @@ $(document).ready(function () {
 
     var url = window.location.href;
     var prodId;
+    $("#viewCartLink").text("");
+    $("#cartPostMsg").text("");
 
     var splits = url.split('/');
     prodId = splits[splits.length - 1];
@@ -31,17 +33,21 @@ $(document).ready(function () {
 
             if (data.email) {
 
+                sessionStorage.clear();
                 newCartItem.UserId = data.id;
 
                 $.post("/api/cart", newCartItem, function () {
                   console.log("cart item added to db "+newCartItem);
+                  $("#cartPostMsg").text("Your item added to cart succesfully!  ");
+                  $("#viewCartLink").text("ViewCart");
+                  $("#cartPostMsg").fadeIn(50);
+                  $("#viewCartLink").fadeIn(50);
                 })
                 
             }
             else {
                 
-                $.get("/api/product/detail/"+prodId,function(data){
-                    
+                $.get("/api/product/detail/"+prodId,function(data){                    
                    
                     newCartItem.Product=data;
                     
@@ -56,9 +62,9 @@ $(document).ready(function () {
                     if (currentSessionCart.length > 2) {
                         //check if new cart already exists        
                         for (var i = 1; i < currentSessionCart.length; i++) {
-                            if (currentSessionCart[i].product_id === newCartItem.product_id) {
+                            if (currentSessionCart[i].ProductId === newCartItem.ProductId) {
                                 notFoundInCart = false;
-                                currentSessionCart[i].product_quantity = parseFloat(currentSessionCart[i].product_quantity) + newCartItem.product_quantity;
+                                currentSessionCart[i].quantity = parseFloat(currentSessionCart[i].quantity) + newCartItem.quantity;
                                 break;
                             }
                         }
@@ -72,6 +78,10 @@ $(document).ready(function () {
     
                     // push a new cartItem inside of it
                     sessionStorage.setItem("userCartInSession", JSON.stringify(currentSessionCart));
+                    $("#cartPostMsg").text("Your item added to cart succesfully!  ");
+                    $("#viewCartLink").text("ViewCart");
+                    $("#cartPostMsg").fadeIn(50);
+                    $("#viewCartLink").fadeIn(50);
     
                 })
                 

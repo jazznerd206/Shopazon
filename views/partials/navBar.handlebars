@@ -38,6 +38,7 @@
                 <label>Password
                     <input type="password" id="loginInputPassword" placeholder="Password">
                 </label>
+                <p id="loginMsg" style="display:inline-block">No Account Yet? Please Sign Up</p><a style="color:blue" id="loginLinkMsg" href="#">here</a>
                 <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
                 <p><input type="submit" class="button expanded" value="Log in"></input></p>
                 <p class="text-center"><a href="#">Forgot your password?</a></p>
@@ -58,6 +59,11 @@
                     <label>Password
                         <input type="password" id="RegisterInputPassword" placeholder="Password">
                     </label>
+                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span> <span class="msg"></span>
+                    </div>
+                    <p id="registerMsg" style="display:inline-block"></p><a style="color:blue" id="linkMsg" href="#"></a>
                     <!-- <input id="show-password unmask" type="checkbox"><label for="show-password">Show password</label> -->
                     <p><input type="submit" class="button expanded" value="Register"></input></p>
                     <p class="text-center"><a href="#">Forgot your password?</a></p>
@@ -67,7 +73,22 @@
     </div>
 
 
-    <div class="form-popup" id="registerForm">
+
+
+
+    <script src="/js/navBar.js"></script>
+    <script src="/js/login.js"></script>
+
+
+
+
+
+
+
+
+    {{!-- 
+
+  <div class="form-popup" id="registerForm">
         <form class="form-container register">
             <h1>Register</h1>
             <div class="form-group">
@@ -94,23 +115,8 @@
             <button type="submit" class="btn">Register</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
-    </div>
+    </div> --}}
 </div>
-
-
-
-<script src="/js/navBar.js"></script>
-<script src="/js/login.js"></script>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -129,6 +135,7 @@
                 <input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
             </div>
             <p id="loginMsg">No Account Yet? Please sign up here</p>
+            
             <div style="display: none" id="alert" class="alert alert-danger" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span class="sr-only">Error:</span> <span class="msg"></span>

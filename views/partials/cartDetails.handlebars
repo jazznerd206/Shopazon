@@ -23,7 +23,7 @@
                 {{#each cart_products}}
 
                 <div class="checkout-summary-item">
-                    <div class="item-name">
+                    <div class="item-name" data-id={{this.Product.id}}>
                         <img class="itemImg" src="{{this.Product.image}}" alt="PRODUCT IMAGE SRC" class="itemImg" />
                         <p class="itemDescription">{{this.Product.description}}</p>
                         <h3 class="itemTitle">{{this.Product.name}}</h3>
