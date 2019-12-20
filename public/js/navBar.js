@@ -37,6 +37,10 @@ $(document).ready(function () {
     function updateShoppingCartItemCount() {
         //need to implement
 
+        if (sessionStorage.getItem('userCartInSession') !== null) {
+            $("#cartCount").text(sessionStorage.getItem('userCartInSession').length)
+            console.log($("#cartCount"))
+        }
     }
 
     function addDepartmentsToDropDown(departments) {
@@ -51,7 +55,7 @@ $(document).ready(function () {
     function handleDept_Products_Request() {
         var dep_id = $(this).attr("data-id");
         window.location.href = "/products/?department=" + dep_id;
-    };
+    }
 
 
     $(document).on("click", "#shoppingCartBtn", showCart);

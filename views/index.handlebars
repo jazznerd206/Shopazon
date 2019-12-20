@@ -5,11 +5,12 @@
 {{/if}}
 
 
- <div style="margin-top:1em" class="grid-container cell-design cell-clear product-container">
     <div class="grid-x grid-margin-y">
         <div class="cell" id="product-path"></div>
-        <div style="margin:0 auto;font-size:2em"><h1>LATEST PRODUCTS</h1></div>
-        <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">            
+        <div style="margin:0 auto;font-size:2em">
+            <h1>LATEST PRODUCTS</h1>
+        </div>
+        <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
             {{#each latestProducts}}
             <div class="cell flex-container">
                 <div class="card cell-design searchResult">
@@ -25,16 +26,18 @@
                 </div>
             </div>
             {{/each}}
-            
+
         </div>
     </div>
 </div>
 
- <div style="margin-top:1em" class="grid-container cell-design cell-clear product-container">
+{{!-- <div style="margin-top:1em" class="grid-container cell-design cell-clear product-container">
     <div class="grid-x grid-margin-y">
         <div class="cell" id="product-path"></div>
-        <div style="margin:0 auto;font-size:2em"><h1>SEASONAL SALES</h1></div>
-        <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">            
+        <div style="margin:0 auto;font-size:2em">
+            <h1>SEASONAL SALES</h1>
+        </div>
+        <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
             {{#each seasonalProducts}}
             <div class="cell flex-container">
                 <div class="card cell-design searchResult">
@@ -50,9 +53,10 @@
                 </div>
             </div>
             {{/each}}
-            
+
         </div>
     </div>
+
 </div>
  {{!-- <div id="indexProductsContainer"></div> --}}
  <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
@@ -98,5 +102,6 @@
     </div>
 
    
+
 
 <script src="/js/index.js"></script>

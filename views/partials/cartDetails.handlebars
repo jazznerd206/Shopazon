@@ -11,10 +11,16 @@
             <div class="checkout-summary cell-design">
                 <div class="checkout-summary-title">
                     <h5>Your Order</h5>
+                    {{!-- <h5 class="float-left">
+                        Ship To: <br>
+                        {{street1}} {{street2}} <br>
+                        {{city}} {{state}} {{zip}}
+                    </h5> --}}
                     <h5><span id="itemCount"></span> Item(s)</h5>
                 </div>
                 {{#each cart_products}}
                 <div class="checkout-summary-item grid-x">
+
                     <div class="item-name cell small-7" data-id={{this.Product.id}}>
                         <img class="itemImg" src="{{this.Product.image}}" class="itemImg"/>
                         <h3 class="itemTitle">{{this.Product.name}}</h3>
@@ -26,6 +32,7 @@
                     <div class="item-price cell small-5">
                         <p class="float-right">Total Product Cost: <span class="cartItemCost">${{multiply this.quantity this.Product.price }}</span></p>
                         <button class="itemRemove button float-right">Remove</button>
+
                     </div>
                 </div>
                 {{/each}}
