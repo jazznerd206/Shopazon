@@ -5,7 +5,7 @@
         </div>
         <div class="cell text-align cartHeader">
             <h4 class="float-left">Your total: <span id="topTotalValueSpan">${{totalFinalValue}}</span></h4>
-            <button class="button float-right" id="proceedCheckOut">Proceed to Checkout</button>
+            <button class="button float-right payAmt" id="proceedCheckOut">Proceed to Checkout</button>
         </div>
         <div class="cell">
             <div class="checkout-summary cell-design">
@@ -20,24 +20,18 @@
                 </div>
                 {{#each cart_products}}
                 <div class="checkout-summary-item grid-x">
-                    <div class="item-name cell small-7">
-                        <img class="itemImg" src="{{this.image}}" class="itemImg" />
-                        <h3 class="itemTitle">{{this.name}}</h3>
-                        <p class="itemDescription">{{this.description}}</p>
-                        <p class="itemPrice">${{this.price}}</p>
-                        <p class="itemQty">Quantity: <input type="number" min="0" class="qtyInput"
-                                value={{this.quantity}}>
+
+                    <div class="item-name cell small-7" data-id={{this.Product.id}}>
+                        <img class="itemImg" src="{{this.Product.image}}" class="itemImg"/>
+                        <h3 class="itemTitle">{{this.Product.name}}</h3>
+                        <p class="itemDescription">{{this.Product.description}}</p>
+                        <p class="itemPrice">${{this.Product.price}}</p>
+                        <p class="itemQty">Quantity: <input type="number" class="qtyInput" value={{this.quantity}}>
                         </p>
                     </div>
                     <div class="item-price cell small-5">
-                        <div class="flex-container align-right">
-                            <p class="">Total Product Cost:
-                                <span class="cartItemCost">${{multiply this.quantity this.price }}</span>
-                            </p>
-                        </div>
-                        <div class="flex-container align-right">
-                            <button class="itemRemove button ">Remove</button>
-                        </div>
+                        <p class="float-right">Total Product Cost: <span class="cartItemCost">${{multiply this.quantity this.Product.price }}</span></p>
+                        <button class="itemRemove button float-right">Remove</button>
 
                     </div>
                 </div>
@@ -57,7 +51,7 @@
                         <p id="tax"><span id="taxValueSpan" class="subTotalValue">${{taxValue}}</span></p>
                         <p id="total"><span id="totalFinalValueSpan" class="subTotalValue">${{totalFinalValue}}</span>
                         </p>
-                        <button class="button float-right" id="proceedCheckOut">Proceed to Checkout</button>
+                        <button class="button float-right payAmt" id="proceedCheckOut">Proceed to Checkout</button>
                     </div>
                 </div>
             </div>

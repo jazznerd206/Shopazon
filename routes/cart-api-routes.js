@@ -16,8 +16,8 @@ module.exports = function(app) {
 
   app.get("/api/cart/status/:status", function(req, res) {
     var query = {};
-    if (req.query.customer_id) {
-      query.UserId = req.query.customer_id;
+    if (req.user) {
+      query.UserId = req.user.id;
       query.status=req.params.status;
     }
     db.Cart.findAll({

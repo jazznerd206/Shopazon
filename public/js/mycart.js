@@ -1,6 +1,7 @@
 
 
 $(document).ready(function () {
+    
 
     var stripePublicKey = "pk_test_b4AAxcmoeMP5eZA8wAxIGRio00UfmNadj1";
 
@@ -17,6 +18,7 @@ $(document).ready(function () {
             if (data.email) {
                 //get from db           
                 $.get("/api/cart/status/" + "addedToCart", function (data1) {
+                   // alert("my products "+JSON.stringify(data1));
                     $.ajax({
                         type: 'POST',
                         url: '/api/mycart',
@@ -40,8 +42,9 @@ $(document).ready(function () {
                 // now let's check if the stored value is an array
                 if (currentSessionCart) {
                     if (!(currentSessionCart instanceof Array)) {
-                        currentSessionCart = [currentSessionCart].slice(1, currentSessionCart.length - 1);
 
+                        currentSessionCart = [currentSessionCart];
+                        
                     }
 
                     $.ajax({
@@ -127,6 +130,10 @@ $(document).ready(function () {
         }//end token
     });
 
+    $(document).on("click","#continueShopping",function(){
+window.location.replace("/");
+    })
+
     $("#loadCartDiv").on("click", ".payAmt", function () {
 
         var price = parseFloat(($("#totalFinalValueSpan").text().substring(1, $("#totalFinalValueSpan").text().length)) * 100);
@@ -134,22 +141,59 @@ $(document).ready(function () {
 
             //get cart items based on user
             if (data.email) {
-                stripeHandler.open({
-                    amount: price
-                })
-            }
-            else {
-                alert("Please login or register to checkout");
-            }
-        });
-    });
+
+        stripeHandler.open({
+            amount: price
+        })
+    }
+    else{
+        //alert("Please login or register to checkout");
+        $("#loginBtn").click();
+    }
+
+    })
+})
 
 
     $(document).on("click", ".itemRemove", handleRemoveItem);
 
     function handleRemoveItem() {
-        $(this).remove();
+        var prodId=$(this).parent().parent().find(".item-name").data("id");
+        
+        // $.get("/api/user_data").then(function (data) {
+
+            //get cart items based on user
+            // if (data.email) {
+            //     //delete from db
+            //     // where:{
+            //     //     UserId:data.id,
+            //     //     ProductId:$(this).parent().parent().find(".item-name").data("id");
+            //     // }
+            // }
+            // else{
+
+            //     //delete from session
+            //     var currentSessionCart = JSON.parse(sessionStorage.getItem("userCartInSession"));
+            //         // now let's check if the stored value is an array
+            //         if (!(currentSessionCart instanceof Array)) {
+            //             currentSessionCart = [currentSessionCart];
+            //         }
+            //         var newsession=currentSessionCart.filter(function(x){
+            //             if (x.ProductId!==prodId) return x;
+            //         });
+            //         alert(JSON.stringify(newsession));
+            //         sessionStorage.setItem("userCartInSession", JSON.stringify(newsession));
+
+            // }
+
+     
+        $(this).parent().parent().remove();
 
         //delete item from db
-    }
-});
+
+    // })
+}
+
+
+})
+

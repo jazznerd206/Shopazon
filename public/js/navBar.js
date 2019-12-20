@@ -64,4 +64,8 @@ $(document).ready(function () {
         window.location.href = "/mycart";
     }
 
+    $(document).on("click",".cell-logo",function(){
+        window.location.replace("/");
+            })
+
 });//end of document

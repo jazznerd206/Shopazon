@@ -251,7 +251,7 @@ form.login {
 }
 
 .form-container {
-  max-width: 300px;
+  /* max-width: 300px; */
   padding: 10px;
   background-color: white;
 }

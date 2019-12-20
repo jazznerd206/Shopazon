@@ -249,6 +249,7 @@ module.exports = function (app) {
                 taxValue = subTotalValue * 0.2;
                 shippingValue = subTotalValue * 0.1;
                 totalFinalValue = subTotalValue + taxValue + shippingValue;
+                fs.writeFile('cartItems.json', '', function(){console.log('content clear done')});
 
                 res.render('partials/cartDetails',
                     {
