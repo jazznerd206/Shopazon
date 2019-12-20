@@ -6,6 +6,9 @@ $(document).ready(function () {
 
     loadCart();
 
+    var itemCount = $('div.checkout-summary-item grid-x').length;
+    $("#itemCount").text(itemCount);
+
     function loadCart() {
         //get user 
         $.get("/api/user_data").then(function (data) {
@@ -33,14 +36,14 @@ $(document).ready(function () {
             else {
 
                 var currentSessionCart = JSON.parse(sessionStorage.getItem("userCartInSession"));
-                
+
                 // now let's check if the stored value is an array
                 if (currentSessionCart) {
                     if (!(currentSessionCart instanceof Array)) {
                         currentSessionCart = [currentSessionCart].slice(1, currentSessionCart.length - 1);
-                        
+
                     }
-                   
+
                     $.ajax({
                         type: 'POST',
                         url: '/api/mycart',
@@ -57,7 +60,7 @@ $(document).ready(function () {
                     });
                 }
                 else {
-                    $("#loadCartDiv").append("<h1> No Items are added to your cart</h1> <button> <a href="/" Start Shopping</a></button>");
+                    $("#loadCartDiv").append("<h1> No Items are added to your cart</h1> <button> <a href=" / " Start Shopping</a></button>");
 
                 }
 
@@ -96,10 +99,10 @@ $(document).ready(function () {
             //update every cart for that user to ordered status
 
             $(".carts").each(function () {
-               
+
 
             })
-            
+
             $.ajax({
                 type: 'POST',
                 url: '/api/purchase',
@@ -122,7 +125,7 @@ $(document).ready(function () {
 
 
         }//end token
-    })
+    });
 
     $("#loadCartDiv").on("click", ".payAmt", function () {
 
@@ -131,16 +134,15 @@ $(document).ready(function () {
 
             //get cart items based on user
             if (data.email) {
-        stripeHandler.open({
-            amount: price
-        })
-    }
-    else{
-        alert("Please login or register to checkout");
-    }
-
-    })
-})
+                stripeHandler.open({
+                    amount: price
+                })
+            }
+            else {
+                alert("Please login or register to checkout");
+            }
+        });
+    });
 
 
     $(document).on("click", ".itemRemove", handleRemoveItem);
@@ -150,6 +152,4 @@ $(document).ready(function () {
 
         //delete item from db
     }
-
-
-})
+});
