@@ -21,7 +21,14 @@ A place to buy anything your heart desires...
 
 - Usage instructions
     - To register/log in:
+        - Click the appropriate link at the top of the page (register first if you have not done so)
+        - Create an account using email and a password.
+        - Creating an account does not log you into Stripe to allow purchases, that is done at time of transaction.
     - To buy product:
+        - Select item, click "add to cart" link.
+        - Click "view cart" link
+        - Using the "purchase now" button, a modal will appear asking for stripe credentials. This will be where you enter your credit card information.
+        - Congrats!! You have supported local businesses with this purchase.
 
 
 ## Support
