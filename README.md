@@ -24,6 +24,7 @@ A place to buy anything your heart desires...
         - Click the appropriate link at the top of the page (register first if you have not done so)
         - Create an account using email and a password.
         - Creating an account does not log you into Stripe to allow purchases, that is done at time of transaction.
+![Register/Login gif](ShopazonLoginGif.gif)
     - To buy product:
         - Select item, click "add to cart" link.
         - Click "view cart" link
