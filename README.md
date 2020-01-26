@@ -16,10 +16,12 @@ A place to buy anything your heart desires...
 
 ## Usage
 
+![Shopazon Title Shot](ShopazonFrontPage.JPG)
 - Shopazon
 - Online shopping marketplace
 
 - Usage instructions
+![Register/Login pic](ShopazonLoginRegister.JPG)
     - To register/log in:
         - Click the appropriate link at the top of the page (register first if you have not done so)
         - Create an account using email and a password.
