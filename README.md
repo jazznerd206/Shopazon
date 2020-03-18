@@ -11,6 +11,8 @@ A place to buy anything your heart desires...
 
 ## Installation
 
+>link to live app: https://evening-mesa-27220.herokuapp.com/
+
 - git clone git@github.com:jazznerd206/Project-Two.git
 - add your own authentication variables where applicable (.env)
 
